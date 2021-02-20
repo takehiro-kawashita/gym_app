@@ -1,4 +1,5 @@
 class GymAppsController < ApplicationController
+  
   def index
     @gym_app = current_user.lessons
   end
