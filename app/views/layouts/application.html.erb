@@ -15,19 +15,18 @@
 
   <body>
     <header>
-            <nav class="bg-light">
-              <div class="container">
-                <% if user_signed_in? %>
-                  <strong><%= link_to current_user.username, pages_show_path %></strong>
-                  <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-                <% else %>
-                  <%= link_to 'サインアップ', new_user_registration_path %>
-                  <%= link_to 'ログイン', new_user_session_path %>
-                <% end %>
-              </div>
-            </nav>
-        </header>
+      <nav class="bg-light">
+        <div class="container">
+          <% if user_signed_in? %>
+
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class:"btn btn-outline-dark" %>
+          <% else %>
+            <%= link_to 'サインアップ', new_user_registration_path,class:"btn btn-outline-success" %>
+            <%= link_to 'ログイン', new_user_session_path,class:"btn btn-outline-primary" %>
+          <% end %>
+        </div>
+      </nav>
+    </header>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
