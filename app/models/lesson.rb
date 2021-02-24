@@ -1,5 +1,5 @@
 class Lesson < ApplicationRecord
-    belongs_to :user
+    belongs_to :reservation
     
     validates :title,presence: true
     validates :level,presence: true
