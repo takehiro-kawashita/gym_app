@@ -1,0 +1,11 @@
+<h1>【運営】レッスン一覧</h1>
+
+<div class="lesson-one">
+    <% @management_lessons.each do |lesson|%>
+        <p><%= lesson.title %></p>
+        <p><%= lesson.category %></p>
+        <p><%= lesson.started_at %></p>
+        <p><%= link_to "詳細",lesson_path(lesson),class: "btn btn-info" %> </p>
+    <% end %>    
+</div>
+

@@ -1,7 +1,8 @@
 class GymAppsController < ApplicationController
   
   def index
-    @user_reservations = current_user.email
+    
+    @user_reservations = current_user.reservations
   end
 
   def create

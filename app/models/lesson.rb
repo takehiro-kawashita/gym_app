@@ -1,5 +1,5 @@
 class Lesson < ApplicationRecord
-    belongs_to :reservation
+    has_many :reservations
     
     validates :title,presence: true
     validates :level,presence: true
