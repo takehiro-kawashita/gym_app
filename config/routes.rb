@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         get "/login",to:"session#new"
         get "/lessons",to:"lessons#index"
         get "/lessons/:id",to:"lessons#show",as:"lesson"
+        # resources :lessons
     end
     
     get "/login",to:"session#new"
