@@ -1,0 +1,53 @@
+<div class="container">
+    <h1><%= type %></h1>
+    <%= form_with model: @session,local:true,method: method do |f| %>
+        <div class="form-group">
+            <label>レッスン名：</label>
+            <%= f.text_field:title, class:"form-control" %>
+        </div>
+        
+        <div class="form-group">
+            <label>担当：</label>
+            <%= f.text_field:instructor,class:"form-control" %>
+        </div>
+        
+        <div class="form-group">
+            <label>実施日時：</label>
+            <%= f.number_field:started_at, class:"form-control" %>
+        </div>
+        
+        <div class="form-group">
+            <label>ランク</label>
+            <%= f.select:level,[["低",1],["中",2],["高",3]],{},{class: "form-control" }%>
+        </div>
+        
+        <div class="form-group">
+            <label>区分</label>
+            <%= f.text_field:category, class:"form-control"%>
+        </div>
+        
+        <div class="form-group">
+            <label>上限人数</label>
+            <%= f.number_field:limits,class:"form-control" %>
+        </div>
+        
+        <div class="form-group">
+            <label>料金</label>
+            <%= f.number_field:price,class:"form-control" %>
+        </div>
+        
+        <div class="form-group">
+            <label>概要</label>
+            <%= f.text_area:description,class:"form-control" %>
+        </div>
+    
+        <%= link_to "戻る",management_lessons_path,class:"btn btn-secondary" %>
+        <%= f.submit type,class:"btn btn-primary"%>
+    <% end %>
+</div>
+
+<style>
+    body{
+        background-color:#FFCC00;
+    }
+</style>

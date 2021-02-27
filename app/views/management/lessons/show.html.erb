@@ -1,13 +1,27 @@
-<h1>【運営】レッスン詳細</h1>
 
-
-    <h2><%= @management_lessons.title %></h2>
+<div class="container">
+    <h1><%= @lesson.title%></h1>    
+    <div class="description">
+        <h2>----レッスン概要-----</h2>
+        <p>レッスンランク:<%= @lesson.level %></p>
+        <p>レッスン目的：<%= @lesson.category %></p>
+        <p>開始時間：<%= @lesson.started_at %>〜</p>
+        <p>概要：<%= @lesson.description %></p>
+        <p>料金：<%= @lesson.price %></p>
+        <p>担当インストラクター：<%= @lesson.instructor %></p>
+        <p>上限人数：<%= @lesson.limits %>人</p>
+    </div>
     
-    <p><%= @management_lessons.level %></p>
-    <p><%= @management_lessons.category %></p>
-    <p><%= @management_lessons.started_at %></p>
-    <p><%= @management_lessons.description %></p>
-    <p><%= @management_lessons.price %></p>
-    <p><%= @management_lessons.instructor %></p>
-    <p><%= @management_lessons.limits %></p>
+</div>
     
+    <p>レッスン予約はこちら</p>
+    <%= link_to "戻る",management_lessons_path,class:"btn btn-secondary"%>
+<style>
+    body{
+        background-color:#FFCC00;
+    }
+    
+    h1{
+        font-family:'Impact';
+    }
+</style>

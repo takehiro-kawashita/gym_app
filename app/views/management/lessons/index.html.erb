@@ -1,11 +1,28 @@
 <h1>【運営】レッスン一覧</h1>
 
-<div class="lesson-one">
-    <% @management_lessons.each do |lesson|%>
-        <p><%= lesson.title %></p>
-        <p><%= lesson.category %></p>
-        <p><%= lesson.started_at %></p>
+<%= link_to "レッスン新規作成",management_new_lesson_path,class:"btn btn-success"%>
+
+
+    <% @lessons.each do |lesson|%>
+    <div class="lesson-one">
+        <p>レッスン名：<%= lesson.title %></p>
+        <p>レッスン目的：<%= lesson.category %></p>
+        <p>開始時間：<%= lesson.started_at %></p>
         <p><%= link_to "詳細",management_lesson_path(lesson),class: "btn btn-info" %> </p>
+        <p><%= link_to "編集",management_edit_lesson_path(lesson),class: "btn btn-danger" %></p>
+    </div>
     <% end %>    
-</div>
+
+
+<style>
+    .lesson-one{
+        display:flex;
+    }
+    
+    p{
+        margin-right:20px;
+    }
+    
+    
+</style>
 
