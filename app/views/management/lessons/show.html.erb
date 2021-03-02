@@ -1,27 +1,45 @@
 
 <div class="container">
-    <h1><%= @lesson.title%></h1>    
-    <div class="description">
-        <h2>----レッスン概要-----</h2>
-        <p>レッスンランク:<%= @lesson.level %></p>
-        <p>レッスン目的：<%= @lesson.category %></p>
-        <p>開始時間：<%= @lesson.started_at %>〜</p>
-        <p>概要：<%= @lesson.description %></p>
-        <p>料金：<%= @lesson.price %></p>
-        <p>担当インストラクター：<%= @lesson.instructor %></p>
-        <p>上限人数：<%= @lesson.limits %>人</p>
+    <h1><%= @lesson.title%></h1>
+    <div class="content mb-5">
+        <div class="lesson-image">
+            
+        </div>
+        
+        <div class="description">
+            <h2>----レッスン概要-----</h2>
+            <p>担当:<%= @lesson.instructor %></p>
+            <p>実施日時：<%= @lesson.started_at.strftime("%Y/%m/%d") %>〜</p>
+            <p>ランク：<%= @lesson.level %></p>
+            <p>区分：<%= @lesson.category %></p>
+            <p>上限人数：<%= @lesson.limits %>人</p>
+            <p>料金：<%= @lesson.price %></p>
+            <p>概要：<%= @lesson.description %></p>
+            
+        </div>
     </div>
     
 </div>
     
     <p>レッスン予約はこちら</p>
-    <%= link_to "戻る",management_lessons_path,class:"btn btn-secondary"%>
+    <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary"%>
+    <%= link_to "編集",edit_management_lesson_path,class:"btn btn-danger" %>
 <style>
-    body{
-        background-color:#FFCC00;
+    .content{
+        display:flex;
+    }
+    
+    .lesson-image{
+        flex:1;
+    }
+    
+    .description{
+        flex:2;
     }
     
     h1{
         font-family:'Impact';
     }
+    
+    
 </style>

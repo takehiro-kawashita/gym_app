@@ -1,9 +1,12 @@
 class Management::LessonsController < ApplicationController
     
-    before_action :set_lesson,only:[:show,:update]
+    before_action :set_lesson,only:[:show,:edit,:update]
     
     def index
         @lessons = Lesson.all
+        @lessons = @lessons.where(title: params[:title]) if params[:title].present?
+        @lessons = @lessons.where(started_at: params[:started_at]) if params[:started_at].present?
+        @lessons = @lessons.where(category: params[:category]) if params[:category].present?
     end
     
     def show
@@ -39,11 +42,17 @@ class Management::LessonsController < ApplicationController
         end
     end
     
+    def edit
+
+    end
+    
+    private
+    
     def set_lesson
         @lesson = Lesson.find(params[:id])
     end
     
     def set_params
-        params.permit(:title,:level,:category,:started_at,:description,:price,:instructor,:limits)
+        params.require(:lesson).permit(:title,:level,:category,:started_at,:description,:price,:instructor,:limits)
     end
 end
