@@ -1,7 +1,7 @@
 <div class="container">
     <h1>レッスン一覧</h1>
 
-    <%= link_to "レッスン新規作成",new_management_lesson_path,class:"btn btn-link"%>
+    <%= link_to "レッスン新規作成",new_management_lesson_path,class: "btn btn-outline-success"%>
     
     <div class="card-body">検索
     <%= form_with method: "get", local: true do |f| %>
@@ -17,7 +17,7 @@
         </div>
       </div>        
         <div class="col button-info">
-            <%= f.submit "検索",class:"btn btn-link" %>
+            <%= f.submit "検索",class:"btn btn-outline-primary" %>
         </div>
     <% end %>
     </div>
@@ -30,8 +30,8 @@
             <p class="col-xs-4">区分：<%= lesson.category %></p>
         </div>
         <div class="button-info">
-            <p><%= link_to "詳細",management_lesson_path(lesson),class:"btn btn-link" %> </p>
-            <p><%= link_to "編集",edit_management_lesson_path(lesson),class:"btn btn-link"%></p>
+            <p><%= link_to "詳細",management_lesson_path(lesson),class:"btn btn-outline-info" %></p>
+            <p><%= link_to "編集",edit_management_lesson_path(lesson),class:"btn btn-outline-info"%></p>
         </div>
     </div>
     <% end %>    
@@ -41,8 +41,8 @@
     .sampleRow{
         margin-left:10px;
     }
+    
     .btn{
-        border:solid 1px #000000;
         background-color:#fff;
     }
 
