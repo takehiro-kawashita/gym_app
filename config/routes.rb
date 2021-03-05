@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+
   devise_for :users
   resources :gym_apps
 
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     namespace :management do
       root 'lessons#index'
@@ -14,6 +14,10 @@ Rails.application.routes.draw do
         # get "/lessons/:id/edit",to:"lessons#edit",as:"edit_lesson"
         # patch "/lessons/:id/edit",to:"lessons#update"
         resources :lessons
+        resources :items
+        get "/authenticate",to:"session#new"
+        post "/authenticate",to:"session#create"
+        resources :users
     end
     
     get "/login",to:"session#new"

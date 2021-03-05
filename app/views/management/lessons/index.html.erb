@@ -26,7 +26,7 @@
     <div class="lesson-one">
         <div class="row sampleRow">
             <p class="col-xs-4">レッスン名：<%= lesson.title %></p>
-            <p class="col-xs-4">実施日時：<%= lesson.started_at.strftime("%Y/%m/%d") %></p>
+            <p class="col-xs-4">実施日時：<%= lesson.started_at.strftime("%Y/%m/%d %H:%M") %></p>
             <p class="col-xs-4">区分：<%= lesson.category %></p>
         </div>
         <div class="button-info">

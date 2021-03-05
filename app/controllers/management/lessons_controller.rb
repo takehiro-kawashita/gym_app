@@ -1,6 +1,7 @@
 class Management::LessonsController < ApplicationController
-    
     before_action :set_lesson,only:[:show,:edit,:update]
+    before_action :login
+    
     
     def index
         @lessons = Lesson.all
@@ -53,6 +54,12 @@ class Management::LessonsController < ApplicationController
     end
     
     def set_params
-        params.require(:lesson).permit(:title,:level,:category,:started_at,:description,:price,:instructor,:limits)
+        params.require(:lesson).permit(:title,:level,:category,:started_at,:description,:price,:instructor,:limits,:image)
+    end
+    
+    def login
+        if session[:auth] == false
+            redirect_to management_authenticate_path
+        end
     end
 end

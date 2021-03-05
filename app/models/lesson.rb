@@ -1,5 +1,6 @@
 class Lesson < ApplicationRecord
     has_many :reservations
+    has_one_attached :image
     
     validates :title,presence: true
     validates :level,presence: true

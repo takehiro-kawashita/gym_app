@@ -1,0 +1,9 @@
+<h1>【運営】</h1>
+
+<%= form_with url: management_authenticate_path,local: true do |f| %>
+    <div class="form-group">
+        <label>認証コード：</label>
+        <%= f.password_field :code, class: "form-control" %>
+    </div>
+    <%= f.submit "認証",class: "btn btn-primary"%>
+<% end %>

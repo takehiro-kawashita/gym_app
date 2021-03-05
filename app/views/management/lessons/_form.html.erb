@@ -13,7 +13,7 @@
         
         <div class="form-group">
             <label>実施日時：</label>
-            <%= f.date_field:started_at, class:"form-control" %>
+            <%= f.datetime_field:started_at, class:"form-control" %>
         </div>
         
         <div class="form-group">
@@ -40,7 +40,7 @@
             <label>概要：</label>
             <%= f.text_area:description,class:"form-control" %>
         </div>
-    
+        <%= f.file_field :image %><br>    
         <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary" %>
         <%= f.submit type,class:"btn btn-primary"%>
     <% end %>
