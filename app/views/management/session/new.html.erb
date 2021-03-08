@@ -1,9 +1,54 @@
-<h1>【運営】</h1>
+<div class="container">
+    <h1>SILVER'S GYM</h1>
+    
+    <%= form_with url: management_authenticate_path,local: true do |f| %>
 
-<%= form_with url: management_authenticate_path,local: true do |f| %>
-    <div class="form-group">
-        <label>認証コード：</label>
-        <%= f.password_field :code, class: "form-control" %>
-    </div>
-    <%= f.submit "認証",class: "btn btn-primary"%>
-<% end %>
+        <div class="form-group">
+            <%= f.password_field :code,placeholder: "Authorization code", class: "form-control" %>
+            <%= f.submit "Login",class: "btn-authorization"%>
+        </div>
+
+    <% end %>    
+</div>
+
+<style>
+    body{
+        background-color:#C0C0C0;
+    }
+    
+    .container{
+        margin-top:5rem;
+        padding:0 6rem;
+    }
+    
+    h1{
+        font-family:'Impact';
+        margin-bottom:3rem;
+    }
+
+    .form-group{
+        display:flex;
+        margin-left:2rem;
+    }
+
+    .form-control{
+        display:inline-block;
+        width:50%;
+        border-radius:0.5rem;
+        margin-right:5rem;
+        box-shadow: 1px 1px 1px 1px inset;
+    }
+    
+    .form-control:focus{
+        box-shadow: 0.5px 0.5px 0.5px 0.5px inset;
+    }
+    
+    .btn-authorization{
+        text-decoration: none;
+        background: #1E90FF;
+        border-radius: 4px;
+        color:#fff;
+        width:10%;
+        font-size:1rem;
+    }
+</style>

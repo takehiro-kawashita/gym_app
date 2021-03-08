@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
+  root 'management/session#new'
   resources :gym_apps
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     namespace :management do
-      root 'lessons#index'
+
         # get "/login",to:"session#new"
         # get "/lessons",to:"lessons#index"
         # post "/lessons/new",to:"lessons#create"

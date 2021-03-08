@@ -2,7 +2,7 @@ class GymAppsController < ApplicationController
   
   def index
     
-    @user_reservations = current_user.reservations
+    @user_reservations = User.all
   end
 
   def create

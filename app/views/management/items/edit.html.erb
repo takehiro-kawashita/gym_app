@@ -1,6 +1,8 @@
-<h1>商品情報編集</h1>
-
-<%= render 'form', item: @item %>
-
-<%= link_to '詳細', [:management,@item] %>
-<%= link_to '戻る', management_items_path %>
+<div class="container">
+    <h1>商品情報編集</h1>
+    
+    <%= render 'form', item: @item %>
+    
+    <%= link_to '詳細', [:management,@item] %>
+    <%= link_to '戻る', management_items_path %>
+</div>

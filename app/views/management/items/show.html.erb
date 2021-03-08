@@ -1,26 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>商品名:</strong>
-  <%= @item.name %>
-</p>
-
-<p>
-  <strong>値段:</strong>
-  <%= @item.price %>
-</p>
-
-<p>
-  <strong>在庫:</strong>
-  <%= @item.stock %>
-</p>
-
-<p>
-  <strong>概要:</strong>
-  <%= @item.description %>
-</p>
-
-<%= image_tag @item.image %>
-
-<%= link_to '編集', edit_management_item_path(@item) %> |
-<%= link_to '戻る', management_items_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <strong>商品名:</strong>
+    <%= @item.name %>
+  </p>
+  
+  <p>
+    <strong>値段:</strong>
+    <%= @item.price %>
+  </p>
+  
+  <p>
+    <strong>在庫:</strong>
+    <%= @item.stock %>
+  </p>
+  
+  <p>
+    <strong>概要:</strong>
+    <%= @item.description %>
+  </p>
+  
+  <%= image_tag @item.image %>
+  
+  <%= link_to '編集', edit_management_item_path(@item) %> |
+  <%= link_to '戻る', management_items_path %>
+  
+</div>
