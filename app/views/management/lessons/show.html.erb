@@ -1,0 +1,35 @@
+
+<div class="container">
+    <h1><%= @lesson.title%></h1>
+    <div class="content mb-5">
+        <div class="show-image">
+            <%= image_tag @lesson.image %>
+        </div>
+        
+        <div class="description">
+            <h2>----レッスン概要-----</h2>
+            <p>担当:<%= @lesson.instructor %></p>
+            <p>実施日時：<%= @lesson.started_at.strftime("%Y/%m/%d %H:%M") %>〜</p>
+            <p>ランク：<%= @lesson.level %></p>
+            <p>区分：<%= @lesson.category %></p>
+            <p>上限人数：<%= @lesson.limits %>人</p>
+            <p>料金：<%= @lesson.price %></p>
+            <p>概要：<%= @lesson.description %></p>
+            
+        </div>
+    </div>
+</div>
+    <p>レッスン予約はこちら</p>
+    <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary"%>
+    <%= link_to "編集",edit_management_lesson_path,class:"btn btn-danger" %>
+<style>
+    .content{
+        display:flex;
+    }
+    
+    h1{
+        font-family:'Impact';
+    }
+    
+    
+</style>

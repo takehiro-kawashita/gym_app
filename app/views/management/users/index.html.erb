@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>会員一覧</h1>
+    <div class="card-body">検索
+    <%= form_with method: "get", local: true do |f| %>
+      <div class="form-row mb-3 mt-2">
+        <div class="col">
+            <%= f.text_field "email", placeholder: "メールアドレス", class: "form-control" %>
+        </div>
+        <div class="col">
+            <%= f.text_field "name", placeholder: "名前", class: "form-control" %>
+        </div>
+
+        <div class="col">
+            <%= f.date_field "birthday", placeholder: "生年月日", class: "form-control" %>
+        </div>
+         <div class="col button-info">
+            <%= f.submit "検索",class:"btn btn-outline-primary" %>
+        </div>
+      </div>
+    <% end %>
+    <table class="table table-striped">
+        <tr>
+            <th>メールアドレス</th>
+            <th>名前</th>
+            <th>生年月日</th>
+            <th></th>
+        </tr>
+    
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.email%></td>
+            <td><%= user.name %></td>
+            <td><%= user.birthday.strftime("%Y/%m/%d") %></td>
+            <td>
+                <%= link_to "詳細",management_user_path(user),class:"btn btn-info"%>
+                <%= link_to "削除",management_user_path(user),method: "delete",data: {confirm:'削除しますか？'},class:"btn btn-danger"%>
+            </td>
+        </tr>
+            
+        <% end %>
+    </table>
+</div>
+
