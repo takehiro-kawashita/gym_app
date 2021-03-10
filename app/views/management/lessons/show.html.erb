@@ -2,7 +2,7 @@
 <div class="container">
     <h1><%= @lesson.title%></h1>
     <div class="content mb-5">
-        <div class="lesson-image">
+        <div class="show-image">
             <%= image_tag @lesson.image %>
         </div>
         
@@ -25,14 +25,6 @@
 <style>
     .content{
         display:flex;
-    }
-    
-    .lesson-image{
-        flex:1;
-    }
-    
-    .description{
-        flex:2;
     }
     
     h1{

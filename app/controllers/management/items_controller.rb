@@ -1,5 +1,5 @@
-class Management::ItemsController < ApplicationController
-  layout 'management'
+class Management::ItemsController < ManagementController
+  
   before_action :set_item, only: [:show,:edit,:update,:destroy ]
   before_action :login
 

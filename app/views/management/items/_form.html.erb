@@ -11,27 +11,27 @@
       </div>
     <% end %>
   
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+    <div class="form-group">
+      <label>商品名：</label>
+      <%= form.text_field :name,class:"form-control input-form" %>
     </div>
   
-    <div class="field">
-      <%= form.label :price %>
-      <%= form.number_field :price %>
+    <div class="form-group">
+      <label>値段(税抜)：</label>
+      <%= form.number_field :price,class:"form-control input-form" %>
     </div>
   
-    <div class="field">
-      <%= form.label :stock %>
-      <%= form.number_field :stock %>
+    <div class="form-group">
+      <label>在庫：</label>
+      <%= form.number_field :stock,class:"form-control input-form" %>
     </div>
   
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description %>
+    <div class="form-group">
+      <label>概要：</label>
+      <%= form.text_area :description,class:"form-control  input-form memo" %>
     </div>
     
-    <%= form.file_field :image %><br> 
+    <%= form.file_field :image,class:"management-image" %><br> 
     <div class="actions">
       <%= form.submit %>
     </div>

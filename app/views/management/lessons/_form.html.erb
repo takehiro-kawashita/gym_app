@@ -3,56 +3,45 @@
     <%= form_with model: [:management,@lesson],local:true,method: method do |f| %>
         <div class="form-group">
             <label>レッスン名：</label>
-            <%= f.text_field:title, class:"form-control" %>
+            <%= f.text_field:title, class:"form-control input-form" %>
         </div>
         
         <div class="form-group">
             <label>担当：</label>
-            <%= f.text_field:instructor,class:"form-control" %>
+            <%= f.text_field:instructor,class:"form-control input-form" %>
         </div>
         
         <div class="form-group">
             <label>実施日時：</label>
-            <%= f.datetime_field:started_at, class:"form-control" %>
+            <%= f.datetime_field:started_at, class:"form-control input-form" %>
         </div>
         
         <div class="form-group">
             <label>ランク：</label>
-            <%= f.select:level,[["低",1],["中",2],["高",3]],{},{class: "form-control" }%>
+            <%= f.select:level,[["低",1],["中",2],["高",3]],{},{class: "form-control input-form" }%>
         </div>
         
         <div class="form-group">
             <label>区分：</label>
-            <%= f.text_field:category, class:"form-control"%>
+            <%= f.text_field:category, class:"form-control input-form"%>
         </div>
         
         <div class="form-group">
             <label>上限人数：</label>
-            <%= f.number_field:limits,class:"form-control" %>
+            <%= f.number_field:limits,class:"form-control input-form" %>
         </div>
         
         <div class="form-group">
             <label>料金：</label>
-            <%= f.number_field:price,class:"form-control" %>
+            <%= f.number_field:price,class:"form-control input-form" %>
         </div>
         
         <div class="form-group">
             <label>概要：</label>
-            <%= f.text_area:description,class:"form-control" %>
+            <%= f.text_area:description,class:"form-control  input-form memo" %>
         </div>
-        <%= f.file_field :image %><br>    
+        <%= f.file_field :image ,class:"management-image"%><br>    
         <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary" %>
         <%= f.submit type,class:"btn btn-primary"%>
     <% end %>
 </div>
-
-<style>
-    .form-group{
-        /*display:flex;*/
-    }
-    
-    input[type="text"],input[type="number"] {
-        width: 300px;
-        height: 40px;
-    }
-</style>

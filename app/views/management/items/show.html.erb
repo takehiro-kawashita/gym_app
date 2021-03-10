@@ -1,29 +1,27 @@
 <div class="container">
+  <h1><%= @item.name%></h1>
   <p id="notice"><%= notice %></p>
+  <div class="content">
+    <div class="show-image">
+      <%= image_tag @item.image %><br>    
+    </div>
+    <div class="description">
+      <p>値段:<%= @item.price %></p>
+      <p>在庫:<%= @item.stock %></p>
+      <p>概要:<%= @item.description %></p>
+    </div>  
+  </div>
   
-  <p>
-    <strong>商品名:</strong>
-    <%= @item.name %>
-  </p>
   
-  <p>
-    <strong>値段:</strong>
-    <%= @item.price %>
-  </p>
+
   
-  <p>
-    <strong>在庫:</strong>
-    <%= @item.stock %>
-  </p>
-  
-  <p>
-    <strong>概要:</strong>
-    <%= @item.description %>
-  </p>
-  
-  <%= image_tag @item.image %>
-  
-  <%= link_to '編集', edit_management_item_path(@item) %> |
-  <%= link_to '戻る', management_items_path %>
+  <div class="btn-margin">
+    <%= link_to '編集', edit_management_item_path(@item),class:"btn btn-info"%>
+    <%= link_to '戻る', management_items_path,class:"btn btn-secondary" %>
+  </div>
   
 </div>
+
+<style>
+
+</style>

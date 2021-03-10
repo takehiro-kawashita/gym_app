@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         get "/authenticate",to:"session#new"
         post "/authenticate",to:"session#create"
         resources :users
+        get "/logout",to:"session#destroy"
     end
     
     get "/login",to:"session#new"

@@ -17,7 +17,7 @@
         </div>
       </div>        
         <div class="col button-info">
-            <%= f.submit "検索",class:"btn btn-outline-primary" %>
+            <%= f.submit "検索",class:"btn btn-outline-primary"%>
         </div>
     <% end %>
     </div>
@@ -48,23 +48,28 @@
 
     .card-body{
         font-size:20px;
-        border:solid 2px #000000;
         margin:30px 0px;
         background-color:#DCDCDC;
+        height:170px;
+        position:relative;
     }
     
     .lesson-one{
         background-color:#DDDDDD;
-        /*display:flex;*/
         border:solid 2px #000000;
         margin-bottom:10px;
         padding:10px;        
+        height:86px;
+        position:relative;
     }
     
     .button-info{
+        display:inline-block;
         display:flex;
+        position:absolute;
+        right:0;
     }
-    
+
     p{
         margin-right:20px;
         margin-bottom:0px;

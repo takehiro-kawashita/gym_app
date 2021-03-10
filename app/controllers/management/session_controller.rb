@@ -1,6 +1,5 @@
-class Management::SessionController < ApplicationController
-    layout 'management'
-    before_action :logout
+class Management::SessionController < ManagementController
+    before_action :login,except: [:new,:create]
     
     def new
     end
@@ -16,9 +15,8 @@ class Management::SessionController < ApplicationController
         end
     end
     
-    def logout
+    def destroy
         session[:auth] = false
-        
-
+        redirect_to management_authenticate_path
     end
 end

@@ -1,5 +1,4 @@
-class Management::LessonsController < ApplicationController
-    layout 'management'
+class Management::LessonsController < ManagementController
     before_action :set_lesson,only:[:show,:edit,:update]
     before_action :login
     

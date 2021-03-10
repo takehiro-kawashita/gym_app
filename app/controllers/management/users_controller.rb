@@ -1,5 +1,4 @@
-class Management::UsersController < ApplicationController
-    layout 'management'    
+class Management::UsersController < ManagementController
     before_action :set_user,only:[:show,:destroy]
 
     
