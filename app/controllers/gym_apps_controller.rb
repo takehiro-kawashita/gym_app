@@ -1,7 +1,6 @@
 class GymAppsController < ApplicationController
   
   def index
-    
     @user_reservations = User.all
   end
 
