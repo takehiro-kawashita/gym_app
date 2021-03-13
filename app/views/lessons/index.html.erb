@@ -1,0 +1,82 @@
+<div class="container">
+    <h1>レッスン一覧</h1>
+
+    <div class="card-body">検索
+    <%= form_with method: "get", local: true do |f| %>
+      <div class="form-row mb-3 mt-2">
+        <div class="col">
+            <%= f.text_field "title", placeholder: "レッスン名", class: "form-control" %>
+        </div>
+        <div class="col">
+            <%= f.date_field "started_at", placeholder: "実施日時", class: "form-control" %>
+        </div>
+        <div class="col">
+            <%= f.text_field "category", placeholder: "区分", class: "form-control" %>
+        </div>
+      </div>        
+        <div class="col button-info">
+            <%= f.submit "検索",class:"btn btn-outline-primary"%>
+        </div>
+    <% end %>
+    </div>
+
+    <% @lessons.each do |lesson|%>
+    <div class="lesson-one">
+        <div class="row sampleRow">
+            <p class="col-xs-4">レッスン名：<%= lesson.title %></p>
+            <p class="col-xs-4">実施日時：<%= lesson.started_at.strftime("%Y/%m/%d %H:%M") %></p>
+            <p class="col-xs-4">区分：<%= lesson.category %></p>
+        </div>
+        <div class="button-info">
+            <p><%= link_to "詳細",lesson_path(lesson),class:"btn btn-outline-info" %></p>
+        </div>
+    </div>
+    <% end %>    
+    <div class="btn-margin">
+        <%= link_to 'マイページ',gym_apps_path,class:"btn btn-primary"%>
+    </div>
+</div>
+
+<style>
+    .sampleRow{
+        margin-left:10px;
+    }
+    
+    .btn{
+        background-color:#fff;
+    }
+
+    .card-body{
+        font-size:20px;
+        margin:30px 0px;
+        background-color:#DCDCDC;
+        height:170px;
+        position:relative;
+    }
+    
+    .lesson-one{
+        background-color:#DDDDDD;
+        border:solid 2px #000000;
+        margin-bottom:10px;
+        padding:10px;        
+        height:86px;
+        position:relative;
+    }
+    
+    .button-info{
+        display:inline-block;
+        display:flex;
+        position:absolute;
+        right:0;
+    }
+
+    p{
+        margin-right:20px;
+        margin-bottom:0px;
+    }
+    
+    .col{
+        margin:auto 0;
+        display:flex;
+    }
+</style>

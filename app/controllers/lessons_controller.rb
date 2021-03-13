@@ -1,5 +1,5 @@
-class Management::LessonsController < ManagementController
-    # before_action :set_lesson,only:[:show,:edit,:update]
+class LessonsController < ApplicationController
+    before_action :set_lesson,only:[:show,:edit,:update]
 
     def index
         @lessons = Lesson.all
@@ -47,9 +47,9 @@ class Management::LessonsController < ManagementController
     
     private
     
-    # def set_lesson
-    #     @lesson = Lesson.find(params[:id])
-    # end
+    def set_lesson
+        @lesson = Lesson.find(params[:id])
+    end
     
     def set_params
         params.require(:lesson).permit(:title,:level,:category,:started_at,:description,:price,:instructor,:limits,:image)
