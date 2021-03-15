@@ -1,15 +1,14 @@
 class ReservationsController < ApplicationController
     
     def index
+        @reservations = Reservation.all
     end
     
-    def show
-    end 
-    
     def create
-        reservation_params = params.require(:reservation).permit(:lesson_id)
-        @reservation = Reservation.new(reservation_params)
-        @reservation.save
-        redirect_to reservations_path
+        @reservation = Reservation.where(user_id: :current_user,lesson_id: :lesson_id)
+        redirect_to lesson_path
+    end
+    
+    def destroy
     end
 end
