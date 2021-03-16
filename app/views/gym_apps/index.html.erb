@@ -1,15 +1,56 @@
-<div class="title">
-<h1>マイページ</h1>    
+<div class="content">
+    <div class="show-image">
+        <ul>
+            <li><%= link_to '商品一覧',items_path %></li>
+            <li><%= link_to 'レッスン一覧・検索',lessons_path %></li>
+            <li><%= link_to '予約済みレッスン',reservations_path %></li>
+            <li><%= link_to '所持ポイント確認',points_path %></li>
+        </ul>
+    </div>
+    <div class="description">
+        <div class="container">
+            <h1>My Page title</h1>
+            <h2>sub title</h2>
+                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <h2>sub title</h2>
+                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <h2>sub title</h2>
+                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>                
+        </div>
+        
+    </div>
+    
 </div>
 
-<!--<p>Find me in app/views/gym_app/index.html.erb</p>-->
+<style>
+    ul{
+        list-style:none;
+        width:100%;
+    }
+    
+    li{
+        margin:3rem 0;
+        font-size:1.5rem;
+    }
+    
+    li a{
+        color:#fff;
+    }
+    
+    li a:hover{
+        text-decoration: none;
+        color:#000;
+    }
+    
+    .show-image{
+        background-color:#4343;
+    }
+    
+    .description{
+        margin-right:3rem;
+    }
+</style>
 
-
-<div class="container">
-    <%= link_to '商品一覧',items_path,class:"btn btn-success" %>
-    <%= link_to 'レッスン一覧・検索',lessons_path,class:"btn btn-primary" %>
-    <%= link_to '予約済みレッスン',reservations_path,class:"btn btn-danger" %>
-    <%= link_to '所持ポイント確認',points_path,class:"btn btn-warning" %>
-    <%= link_to 'ログアウト',new_user_session_path,data:{confirm: '本当にログアウトしますか？'} %>
-
-</div>

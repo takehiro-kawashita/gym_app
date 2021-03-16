@@ -1,9 +1,9 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <h1>商品一覧</h1>
-  
-  <%= link_to '新規商品登録', new_management_item_path,class:"btn btn-outline-success" %>
-  
+  <div class="page-top">
+    <h1>商品一覧</h1>
+    <%= link_to '新規商品登録', new_management_item_path,class:"btn btn-success" %>
+  </div>
   <div class="card-body">検索
   <%= form_with method: "get", local: true do |f| %>
     <div class="form-row mb-3 mt-2">
@@ -13,10 +13,11 @@
       <div class="col">
           <%= f.text_field "price", placeholder: "値段", class: "form-control" %>
       </div>
-    </div>        
+
       <div class="col button-info">
-          <%= f.submit "検索",class:"btn btn-outline-primary"%>
+          <%= f.submit "検索",class:"btn btn-primary"%>
       </div>
+    </div>
     <% end %>
   </div>
   <table class="table table-striped">
@@ -32,12 +33,11 @@
         <tr>
           <td><%= item.name %></td>
           <td><%= item.price %></td>
-          <td><%= link_to '詳細', management_item_path(item),class:"btn btn-outline-info"%>
-              <%= link_to '編集', edit_management_item_path(item),class:"btn btn-outline-info" %>
-              <%= link_to '削除', management_item_path(item), method: :delete, data: { confirm: 'Are you sure?'},class:"btn btn-outline-danger" %></td>
+          <td><%= link_to '詳細', management_item_path(item),class:"btn btn-info"%>
+              <%= link_to '編集', edit_management_item_path(item),class:"btn btn-info" %>
+              <%= link_to '削除', management_item_path(item), method: :delete, data: { confirm: 'Are you sure?'},class:"btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  
 </div>

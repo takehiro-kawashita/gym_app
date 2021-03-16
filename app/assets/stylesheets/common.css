@@ -2,8 +2,7 @@
 body{
     background-color:#FFCC00;
 }
-/*運p営側の一覧リンク*/
-
+/*運営側の一覧リンク*/
 nav{
     width: 100%;
     background-color: #4343;
@@ -14,13 +13,16 @@ nav a{
     display: inline-block;
     margin:0 auto;
     color: #fff;
-    padding:0.5rem;
+    padding:0.7rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
 }
 
 nav a:hover{
     text-decoration: none;
     color: #000;
 }
+
 
 /*入力フォームレイアウト*/
 label{
@@ -70,6 +72,25 @@ img{
     flex:2;
 }
 
+/*一覧画面*/
+.page-top{
+    display: flex;
+    position: relative;
+}
+
+.page-top > .btn{
+    position: absolute;
+    height: 38px;
+    right:0px;
+    bottom: 0px;    
+}
+
+
+/*検索画面*/
 .card-body{
     border:solid 2px #000000;
+    margin: 2rem 0;
 }
+
+
+

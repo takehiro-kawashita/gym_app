@@ -20,7 +20,7 @@
     </div>
 </div>
 <%= link_to "戻る",lessons_path,class:"btn btn-secondary"%>
-<%= link_to "予約",reservations_path(lesson_id: :id),method: :post,class:"btn btn-success" %>
+<%= link_to "予約", {reservation: {lesson_id: 1}},method: :post  %>
 <style>
     .content{
         display:flex;

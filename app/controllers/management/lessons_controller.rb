@@ -1,5 +1,5 @@
 class Management::LessonsController < ManagementController
-    before_action :set_lesson,only:[:show,:edit,:update]
+    before_action :set_lesson,only:[:show,:edit,:update,:destroy]
     before_action :login
     
     
@@ -46,6 +46,12 @@ class Management::LessonsController < ManagementController
     def edit
 
     end
+    
+    def destroy
+        @lesson.destroy
+        redirect_to management_lessons_path
+    end
+
     
     private
     

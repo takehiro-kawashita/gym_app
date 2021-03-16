@@ -1,7 +1,20 @@
 <div class="container">
     <h1>商品一覧</h1>
-    
-    
+     <div class="card-body">検索
+      <%= form_with method: "get", local: true do |f| %>
+      <div class="form-row mb-3 mt-2">
+        <div class="col">
+          <%= f.text_field "name", placeholder: "商品名", class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.text_field "price", placeholder: "値段", class: "form-control" %>
+        </div>
+        <div class="col button-info">
+          <%= f.submit "検索",class:"btn btn-primary"%>
+        </div>
+      </div>
+      <% end %>
+    </div>  
      <table class="table table-striped">
         <thead>
           <tr>
@@ -15,12 +28,12 @@
             <tr>
               <td><%= item.name %></td>
               <td><%= item.price %></td>
-              <td><%= link_to '詳細', item_path(item),class:"btn btn-outline-info"%>
+              <td><%= link_to '詳細', item_path(item),class:"btn btn-info"%>
             </tr>
           <% end %>
         </tbody>
       </table>
       <div class="btn-margin">
-          <%= link_to 'マイページ',gym_apps_path,class:"btn btn-primary"%>
+          <%= link_to 'マイページ',gym_apps_path,class:"btn btn-secondary"%>
       </div>
 </div>
