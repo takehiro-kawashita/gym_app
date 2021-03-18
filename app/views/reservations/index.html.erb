@@ -1,6 +1,10 @@
 <div class="container">
     <h1>レッスン予約一覧</h1>
-        <p><%= @reservation.lesson_id%></p>
+    <% @reservations.each do |reservation| %>
+        <p><%= reservation.lesson.title%></p>
+        <p><%= reservation.lesson.started_at%></p>
+        <p><%= reservation.lesson.price%></p>
+    <% end %>
     <div class="btn-margin">
         <%= link_to 'マイページ',gym_apps_path,class:"btn btn-primary"%>
     </div>    

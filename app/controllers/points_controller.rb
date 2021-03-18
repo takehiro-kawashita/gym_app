@@ -1,5 +1,5 @@
 class PointsController < ApplicationController
     def index
-        # @point = User.point
+        @point = current_user.point
     end
 end

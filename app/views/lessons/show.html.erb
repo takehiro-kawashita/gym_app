@@ -4,8 +4,7 @@
         <div class="show-image">
             <%= image_tag @lesson.image %>
         </div>
-        
-        
+
         <div class="description">
             <h2>----レッスン概要-----</h2>
             <p>担当:<%= @lesson.instructor %></p>
@@ -20,7 +19,7 @@
     </div>
 </div>
 <%= link_to "戻る",lessons_path,class:"btn btn-secondary"%>
-<%= link_to "予約", {reservation: {lesson_id: 1}},method: :post  %>
+<%= link_to "予約", reservations_path(lesson_id: @lesson.id),method: :post  %>
 <style>
     .content{
         display:flex;

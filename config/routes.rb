@@ -14,8 +14,13 @@ Rails.application.routes.draw do
         resources :items
         get "/authenticate",to:"session#new"
         post "/authenticate",to:"session#create"
-        resources :users
+        resources :users do
+          member do
+            post "points",to:"users#point"
+          end
+        end
         get "/logout",to:"session#destroy"
+        
     end
     get "/login",to:"session#new"
 end
