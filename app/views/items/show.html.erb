@@ -1,19 +1,23 @@
 <div class="container">
-  <h1><%= @item.name%></h1>
+  <div class="page-top">
+
+    <%= link_to '戻る',items_path,class:"btn btn-secondary" %>  
+  </div>
+  
   <p id="notice"><%= notice %></p>
   <div class="content">
     <div class="show-image">
       <%= image_tag @item.image %><br>    
     </div>
     <div class="description">
-      <p>値段:<%= @item.price %></p>
-      <p>在庫:<%= @item.stock %></p>
-      <p>概要:<%= @item.description %></p>
+      <h1><%= @item.name%></h1>
+      <p>値段:<span class="item-price">￥<%= @item.price.to_s(:delimited,delimiter:',') %></span>円</p>
+      <p>在庫:<span class="item-stock"><%= @item.stock %></span></p>
+      <p>概要:<span class="item-description"><%= @item.description %></span></p>
     </div>  
   </div>
-  
-  <div class="btn-margin">
-    <%= link_to '戻る',items_path,class:"btn btn-secondary" %>
-  </div>
-  
 </div>
+
+<style>
+
+</style>

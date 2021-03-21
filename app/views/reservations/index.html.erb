@@ -1,11 +1,31 @@
 <div class="container">
-    <h1>レッスン予約一覧</h1>
-    <% @reservations.each do |reservation| %>
-        <p><%= reservation.lesson.title%></p>
-        <p><%= reservation.lesson.started_at%></p>
-        <p><%= reservation.lesson.price%></p>
-    <% end %>
-    <div class="btn-margin">
-        <%= link_to 'マイページ',gym_apps_path,class:"btn btn-primary"%>
-    </div>    
+    <div class="page-top">
+        <h1>レッスン予約一覧</h1>
+        <%= link_to 'マイページ',gym_apps_path,class:"btn btn-secondary"%>
+    </div>
+    
+    <table class="table-striped">
+        <tr>
+            <th>レッスン名</th>
+            <th>実施日</th>
+            <th>料金</th>
+            <th></th>
+        </tr>
+        <% @reservations.each do |reservation| %>
+        <tr>
+            <td><%= reservation.lesson.title%></td>
+            <td><%= reservation.lesson.started_at.strftime("%Y/%m/%d")%></td>
+            <td><%= reservation.lesson.price%></td>
+            <td>
+                <%= link_to "レッスン詳細",lesson_path(reservation),class:"link-info" %>
+            </td>
+        </tr>
+        <% end %>    
+    </table>
 </div>
+
+<style>
+    .page-top{
+        margin-bottom:2rem;
+    }
+</style>

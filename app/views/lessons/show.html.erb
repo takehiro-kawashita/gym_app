@@ -1,8 +1,14 @@
 <div class="container">
-    <h1><%= @lesson.title%></h1>
+    <div class="page-top">
+        <h1><%= @lesson.title%></h1>
+        <%= link_to "戻る",lessons_path,class:"btn btn-secondary"%>        
+        
+    </div>
+
     <div class="content mb-5">
         <div class="show-image">
             <%= image_tag @lesson.image %>
+            <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,class:"btn-reservation" %>  
         </div>
 
         <div class="description">
@@ -18,8 +24,7 @@
         </div>
     </div>
 </div>
-<%= link_to "戻る",lessons_path,class:"btn btn-secondary"%>
-<%= link_to "予約", reservations_path(lesson_id: @lesson.id),method: :post  %>
+
 <style>
     .content{
         display:flex;
@@ -28,4 +33,5 @@
     h1{
         font-family:'Impact';
     }
+
 </style>

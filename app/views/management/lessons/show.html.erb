@@ -1,6 +1,14 @@
 
 <div class="container">
-    <h1><%= @lesson.title%></h1>
+    <div class="page-top">
+        <h1><%= @lesson.title%></h1>
+        <div class="btn">
+            <%= link_to "編集",edit_management_lesson_path,class:"btn btn-danger" %>     
+            <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary"%>
+        </div>
+               
+    </div>
+    
     <div class="content mb-5">
         <div class="show-image">
             <%= image_tag @lesson.image %>
@@ -19,9 +27,7 @@
         </div>
     </div>
 </div>
-    <p>レッスン予約はこちら</p>
-    <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary"%>
-    <%= link_to "編集",edit_management_lesson_path,class:"btn btn-danger" %>
+
 <style>
     .content{
         display:flex;

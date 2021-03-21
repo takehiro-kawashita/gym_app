@@ -9,10 +9,10 @@ class Management::UsersController < ManagementController
     end
     
     def point
-        p @user.point
         @user.point += params[:point].to_i
-        p @user.point
+        @user.save
         redirect_to management_user_path(params[:id])
+        
     end
     
     def show
