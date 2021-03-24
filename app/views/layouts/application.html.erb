@@ -12,29 +12,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <style>
-    .bg-header {
-      background-image:linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-      display:flex;
-      position:relative;
-    }
-    
-    .header-btn{
-      position:absolute;
-      height:38px;
-      right:2rem;
-      bottom:0rem;
-    }
-    
-    .bg-header > h1{
-      color:#fff;
-      margin-left:4rem;
-    }
-  </style>
+
   <body>
     <header>
       <nav class="bg-header">
-        <!--<div class="container">-->
         <h1>SILVER'S GYM</h1>
           <% if user_signed_in? %>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class:"btn btn-dark header-btn" %>
@@ -43,9 +24,8 @@
             <%= link_to 'サインアップ', new_user_registration_path,class:"btn btn-success"%>
             <%= link_to 'ログイン', new_user_session_path,class:"btn btn-primary" %>
           </div>
-            
           <% end %>
-        <!--</div>-->
+
       </nav>
     </header>
     <div class="container">

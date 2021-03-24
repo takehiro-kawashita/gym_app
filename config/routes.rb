@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/items",to:"items#index"
   get "/items/:id",to:"items#show",as:"item"
   get "/points",to:"points#index"
-  resources :reservations, only: [:index, :create, :destroy]
+  resources :reservations, only: [:index,:show, :create, :destroy]
     namespace :management do
         resources :lessons
         resources :items

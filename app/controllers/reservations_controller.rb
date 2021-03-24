@@ -4,6 +4,10 @@ class ReservationsController < ApplicationController
         @reservations = current_user.reservations
     end
     
+    def show
+        
+    end
+    
     def create
         if Reservation.where(user_id: current_user.id,lesson_id: params[:lesson_id]).blank?
             Reservation.create(user_id: current_user.id,lesson_id: params[:lesson_id])
@@ -13,7 +17,9 @@ class ReservationsController < ApplicationController
     
     def destroy
         reservation = Reservation.where(user_id: current_user.id,lesson_id: params[:lesson_id]).first
+        # reservation = Reservation.find(params[:lesson_id])
         reservation.destroy
-        redirect_to lesson_path(params[:lesson_id])
+        redirect_to reservations_path
+        # redirect_to lesson_path(params[:lesson_id])
     end
 end

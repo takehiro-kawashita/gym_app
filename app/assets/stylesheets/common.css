@@ -3,6 +3,24 @@ body{
     background-color:#FFCC00;
 }
 
+.bg-header {
+   background-image:linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+   display:flex;
+   position:relative;
+}
+
+.bg-header > h1{
+  color:#fff;
+  margin-left:4rem;
+  font-family: 'Impact';
+}
+
+.header-btn{
+  position:absolute;
+  height:38px;
+  right:2rem;
+  bottom:0rem;
+}
 
 /*運営側の一覧リンク*/
 nav{

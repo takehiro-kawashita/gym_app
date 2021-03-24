@@ -1,6 +1,4 @@
 <div class="container">
-    <h1>SILVER'S GYM</h1>
-    
     <%= form_with url: management_authenticate_path,local: true do |f| %>
         <div class="form-group">
             <%= f.password_field :code,placeholder: "Authorization code", class: "form-control" %>
@@ -12,16 +10,17 @@
 <style>
     body{
         background-color:#C0C0C0;
+        background-image:url("<%= asset_path('management-login-1.jpeg')%>");
+        background-repeat:no-repeat;
+        background-position:center center;
+        background-attachment:fixed;
+        background-size:cover;
     }
     
     .container{
         margin-top:5rem;
         padding:0 6rem;
-    }
-    
-    h1{
-        font-family:'Impact';
-        margin-bottom:3rem;
+        
     }
 
     .form-group{
