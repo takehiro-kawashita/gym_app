@@ -15,13 +15,21 @@
 
   <body>
     <header>
+      <div class="bg-header">
+          <h1>SILVER'S GYM</h1>
+          <% if session[:auth] == true %>
+            <%= link_to 'ログアウト',management_logout_path,data:{confirm: '本当にログアウトしますか？'},class:"btn btn-dark header-btn"%>
+          <% end%>
+      </div>
+
       <nav>
         <div class="container">
           <% if session[:auth] == true %>
-            <%= link_to 'レッスン一覧',management_lessons_path %>
-            <%= link_to '商品一覧',management_items_path %>
-            <%= link_to '会員一覧',management_users_path %>
-            <%= link_to 'ログアウト',management_logout_path,data:{confirm: '本当にログアウトしますか？'} %>
+            <div class="management-header">
+              <%= link_to 'レッスン一覧',management_lessons_path%>
+              <%= link_to '商品一覧',management_items_path %>
+              <%= link_to '会員一覧',management_users_path %>
+            </div>
           <% end %>
         </div>
       </nav>
@@ -38,3 +46,9 @@
     <%= yield %>
   </body>
 </html>
+
+<style>
+  .management-header{
+    /*background-color:red;*/
+  }
+</style>

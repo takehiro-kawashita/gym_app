@@ -8,6 +8,14 @@
     <p>住所：<%= @user.address %></p>
     <p>性別：<%= @user.sex %></p>
     
+    <%= form_with model: @point,url: points_management_user_path,method: "post",local:true do |f| %>
+        <div class="form-group">
+            <label>ポイント</label>
+            <%= f.number_field :point,class:"form-control" %>
+        </div>
+        <%= f.submit '付与',class:"btn btn-success"%>
+    <% end %>
+    
     <%= link_to "戻る",management_users_path,class:"btn btn-secondary" %>    
 </div>
 

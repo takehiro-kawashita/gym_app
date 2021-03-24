@@ -1,0 +1,25 @@
+class ReservationsController < ApplicationController
+    
+    def index
+        @reservations = current_user.reservations
+    end
+    
+    def show
+        
+    end
+    
+    def create
+        if Reservation.where(user_id: current_user.id,lesson_id: params[:lesson_id]).blank?
+            Reservation.create(user_id: current_user.id,lesson_id: params[:lesson_id])
+        end
+        redirect_to lesson_path(params[:lesson_id])
+    end
+    
+    def destroy
+        reservation = Reservation.where(user_id: current_user.id,lesson_id: params[:lesson_id]).first
+        # reservation = Reservation.find(params[:lesson_id])
+        reservation.destroy
+        redirect_to reservations_path
+        # redirect_to lesson_path(params[:lesson_id])
+    end
+end

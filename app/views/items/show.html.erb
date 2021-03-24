@@ -1,18 +1,17 @@
 <div class="container">
+  <div class="page-top">
 
-  <p id="notice"><%= notice %></p>
-    <div class="btn-margin">
-    <%= link_to '編集', edit_management_item_path(@item),class:"btn btn-info"%>
-    <%= link_to '戻る', management_items_path,class:"btn btn-secondary" %>
+    <%= link_to '戻る',items_path,class:"btn btn-secondary" %>  
   </div>
+  
+  <p id="notice"><%= notice %></p>
   <div class="content">
-    
     <div class="show-image">
       <%= image_tag @item.image %><br>    
     </div>
     <div class="description">
       <h1><%= @item.name%></h1>
-      <p>値段:<span class="item-price">￥<%= @item.price %></span>円</p>
+      <p>値段:<span class="item-price">￥<%= @item.price.to_s(:delimited,delimiter:',') %></span>円</p>
       <p>在庫:<span class="item-stock"><%= @item.stock %></span></p>
       <p>概要:<span class="item-description"><%= @item.description %></span></p>
     </div>  
@@ -20,5 +19,5 @@
 </div>
 
 <style>
-  
+
 </style>

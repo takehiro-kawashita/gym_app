@@ -13,12 +13,14 @@
         <div class="col">
             <%= f.date_field "birthday", placeholder: "生年月日", class: "form-control" %>
         </div>
-         <div class="col button-info">
-            <%= f.submit "検索",class:"btn btn-outline-primary" %>
+        <div class="col button-info">
+            <%= f.submit "検索",class:"btn btn-primary" %>
         </div>
       </div>
+    </div>
+
     <% end %>
-    <table class="table table-striped">
+    <table class="table-striped">
         <tr>
             <th>メールアドレス</th>
             <th>名前</th>
@@ -36,8 +38,6 @@
                 <%= link_to "削除",management_user_path(user),method: "delete",data: {confirm:'削除しますか？'},class:"btn btn-danger"%>
             </td>
         </tr>
-            
         <% end %>
     </table>
 </div>
-

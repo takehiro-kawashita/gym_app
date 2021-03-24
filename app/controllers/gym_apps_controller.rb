@@ -1,15 +1,11 @@
 class GymAppsController < ApplicationController
   
+  before_action :authenticate_user!
+  
   def index
-    
-    @user_reservations = User.all
+    @user_reservations = User.where(user_id: session[:user_id])
   end
 
-  def create
-    @gym_app.user_id = current_user.id
-    @result = @gym_app.save
-  end
-  
   def show
   end
 end

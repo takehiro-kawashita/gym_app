@@ -1,9 +1,10 @@
 <div class="container">
     <div class="page-top">
-        <h1 class="page-title">レッスン一覧</h1>
-        <%= link_to "レッスン新規作成",new_management_lesson_path,class: "btn btn-success"%>
+        <h1>レッスン一覧</h1>
+        <%= link_to 'マイページ',gym_apps_path,class:"btn btn-secondary"%>
     </div>
     
+
     <div class="card-body">検索
     <%= form_with method: "get", local: true do |f| %>
       <div class="form-row mb-3 mt-2">
@@ -20,6 +21,7 @@
             <%= f.submit "検索",class:"btn btn-primary"%>
         </div>
       </div>        
+
     <% end %>
     </div>
 
@@ -31,9 +33,7 @@
             <p class="col-xs-4">区分：<%= lesson.category %></p>
         </div>
         <div class="button-info">
-            <p><%= link_to "詳細",management_lesson_path(lesson),class:"btn btn-info" %></p>
-            <p><%= link_to "編集",edit_management_lesson_path(lesson),class:"btn btn-info"%></p>
-            <p><%= link_to "削除",management_lesson_path(lesson), method: "delete", data: { confirm: 'Are you sure?'},class:"btn btn-danger" %></p>
+            <p><%= link_to "レッスン詳細",lesson_path(lesson),class:"link-info" %></p>
         </div>
     </div>
     <% end %>    
@@ -43,7 +43,6 @@
     .sampleRow{
         margin-left:10px;
     }
-
     .card-body{
         font-size:20px;
         margin:30px 0px;
@@ -59,7 +58,7 @@
         height:86px;
         position:relative;
     }
-
+    
     .button-info{
         display:inline-block;
         display:flex;

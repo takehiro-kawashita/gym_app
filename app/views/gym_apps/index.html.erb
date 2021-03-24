@@ -1,13 +1,85 @@
-<div class="title">
-<h1>マイページ</h1>    
+<div class="container">
+    <div class="content">
+        <div class="show-image">
+            <h2 style="font-family:'Impact'">MENU</h2>
+            <ul>
+                <li><%= link_to '商品一覧',items_path,class:"mypage-list" %></li>
+                <li><%= link_to 'レッスン一覧・検索',lessons_path,class:"mypage-list" %></li>
+                <li><%= link_to '予約済みレッスン',reservations_path,class:"mypage-list" %></li>
+                <li><%= link_to '所持ポイント確認',points_path,class:"mypage-list" %></li>
+            </ul>
+        </div>
+        <div class="description">
+            <div class="container">
+                <h1 style="font-family:'Impact'">My Page title</h1>
+                
+                <h2>sub title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h2>sub title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h2>sub title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h2>sub title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>                
+            </div>
+        </div>
+    </div>
 </div>
 
-<p>Find me in app/views/gym_app/index.html.erb</p>
-<p><%= @user_reservations%></p>
+<style>
+    ul{
+        list-style:none;
+        width:100%;
+        padding:0;
+    }
+    
+    .mypage-list{
+        margin:1.5rem 0;
+        font-size:1.2rem;
+        border:2px solid #000;
+        background-color:#000;
+    }
+    
+    .mypage-list:hover{
+        background-color:#FFCC00;
+        color:#000;
+        transition:background-color .5s;
+    }
+    
+    li a{
+        color:#FFCC00;
+        display:block;
+        padding:0.5rem 1rem;
+        
+    }
 
-<ul>
-    <li>商品一覧</li>
-    <li>レッスン予約</li>
-    <li>ポイント確認</li>
-</ul>
+    li a:hover{
+        text-decoration: none;
+    }
+    
+    .container > h1{
+        margin-bottom:5rem;
+    }
+    
+     h2{
+         border-bottom:solid 2px black;
+    }
+    
+    .show-image{
+        border-right:1px solid #000;
+        padding-right:1rem;
+    }
+</style>
 

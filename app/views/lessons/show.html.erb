@@ -1,19 +1,16 @@
-
 <div class="container">
     <div class="page-top">
         <h1><%= @lesson.title%></h1>
-        <div class="btn">
-            <%= link_to "編集",edit_management_lesson_path,class:"btn btn-danger" %>     
-            <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary"%>
-        </div>
-               
+        <%= link_to "戻る",lessons_path,class:"btn btn-secondary"%>        
+        
     </div>
-    
+
     <div class="content mb-5">
         <div class="show-image">
             <%= image_tag @lesson.image %>
+            <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,class:"btn-reservation" %>  
         </div>
-        
+
         <div class="description">
             <h2>----レッスン概要-----</h2>
             <p>担当:<%= @lesson.instructor %></p>
@@ -36,6 +33,5 @@
     h1{
         font-family:'Impact';
     }
-    
-    
+
 </style>

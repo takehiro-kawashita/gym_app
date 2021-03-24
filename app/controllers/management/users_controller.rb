@@ -1,12 +1,18 @@
 class Management::UsersController < ManagementController
-    before_action :set_user,only:[:show,:destroy]
-
+    before_action :set_user,only:[:show,:point,:destroy]
     
     def index
         @users = User.all
         @users = @users.where(email: params[:email]) if params[:email].present?
         @users = @users.where(name: params[:name]) if params[:name].present?
         @users = @users.where(birthday: params[:birthday]) if params[:birthday].present?
+    end
+    
+    def point
+        @user.point += params[:point].to_i
+        @user.save
+        redirect_to management_user_path(params[:id])
+        
     end
     
     def show
@@ -23,8 +29,7 @@ class Management::UsersController < ManagementController
     def set_user
         @user = User.find(params[:id])
     end
-    
-    
+
     def set_params
         params.require(:user).permit(:email,:name,:point,:birthday,:address,:male)
     end
