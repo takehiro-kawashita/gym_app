@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
     end
     
     def destroy
-        reservation = Reservation.where(user_id: current_user.id,lesson_id: params[:lesson_id]).first
+        reservation = Reservation.where(user_id: current_user.id,lesson_id: params[:id]).first
         # reservation = Reservation.find(params[:lesson_id])
         reservation.destroy
         redirect_to reservations_path

@@ -18,7 +18,7 @@
             <td><%= reservation.lesson.price%></td>
             <td>
                 <%= link_to "レッスン詳細",lesson_path(reservation.lesson_id),class:"link-info" %>
-                <%= link_to "予約キャンセル",reservations_path(reservation.lesson_id),method: :delete,data: { confirm: 'Are you sure?'},class:"btn btn-danger"%>
+                <%= link_to "予約キャンセル",reservation_path(reservation.lesson_id),method: :delete,data: { confirm: 'Are you sure?'},class:"btn btn-danger"%>
             </td>
         </tr>
         <% end %>    

@@ -1,11 +1,12 @@
 class Management::UsersController < ManagementController
     before_action :set_user,only:[:show,:point,:destroy]
+    before_action :set_q,only: [ :index,:search]
     
     def index
         @users = User.all
-        @users = @users.where(email: params[:email]) if params[:email].present?
-        @users = @users.where(name: params[:name]) if params[:name].present?
-        @users = @users.where(birthday: params[:birthday]) if params[:birthday].present?
+        # @users = @users.where(email: params[:email]) if params[:email].present?
+        # @users = @users.where(name: params[:name]) if params[:name].present?
+        # @users = @users.where(birthday: params[:birthday]) if params[:birthday].present?
     end
     
     def point
@@ -24,8 +25,16 @@ class Management::UsersController < ManagementController
         redirect_to management_users_path
     end
     
+    def search
+        @results = @q.result
+    end
+    
     private
     
+    def set_q
+        @q = User.ransack(params[:q])
+    end
+
     def set_user
         @user = User.find(params[:id])
     end
@@ -33,4 +42,6 @@ class Management::UsersController < ManagementController
     def set_params
         params.require(:user).permit(:email,:name,:point,:birthday,:address,:male)
     end
+    
+    
 end

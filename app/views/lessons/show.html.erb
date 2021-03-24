@@ -7,7 +7,7 @@
 
     <div class="content mb-5">
         <div class="show-image">
-            <%= image_tag @lesson.image %>
+            <%= image_tag @lesson.image if @lesson.image.attached? %>
             <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,class:"btn-reservation" %>  
         </div>
 

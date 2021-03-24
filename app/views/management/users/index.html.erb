@@ -1,25 +1,32 @@
 <div class="container">
     <h1>会員一覧</h1>
     <div class="card-body">検索
-    <%= form_with method: "get", local: true do |f| %>
-      <div class="form-row mb-3 mt-2">
-        <div class="col">
-            <%= f.text_field "email", placeholder: "メールアドレス", class: "form-control" %>
-        </div>
-        <div class="col">
-            <%= f.text_field "name", placeholder: "名前", class: "form-control" %>
-        </div>
 
-        <div class="col">
-            <%= f.date_field "birthday", placeholder: "生年月日", class: "form-control" %>
-        </div>
-        <div class="col button-info">
-            <%= f.submit "検索",class:"btn btn-primary" %>
-        </div>
-      </div>
+    <!--  <div class="form-row mb-3 mt-2">-->
+    <!--    <div class="col">-->
+
+    <!--    </div>-->
+    <!--    <div class="col">-->
+
+    <!--    </div>-->
+
+    <!--    <div class="col">-->
+
+    <!--    </div>-->
+    <!--    <div class="col button-info">-->
+
+    <!--    </div>-->
+    <!--  </div>-->
+
+    
+    <%= search_form_for @q,url: search_management_users_path do |f| %>
+        <%= f.label :name_cont,'名前'%>
+        <%= f.search_field :name_cont %>
+        <%= f.submit '検索'%>
+    <% end %>
     </div>
 
-    <% end %>
+
     <table class="table-striped">
         <tr>
             <th>メールアドレス</th>
