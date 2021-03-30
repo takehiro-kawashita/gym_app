@@ -1,32 +1,15 @@
 <div class="container">
-    <h1>会員一覧</h1>
+    <div class="page-top">
+        <h1 class="page-title">会員一覧</h1>        
+    </div>
     <div class="card-body">検索
-
-    <!--  <div class="form-row mb-3 mt-2">-->
-    <!--    <div class="col">-->
-
-    <!--    </div>-->
-    <!--    <div class="col">-->
-
-    <!--    </div>-->
-
-    <!--    <div class="col">-->
-
-    <!--    </div>-->
-    <!--    <div class="col button-info">-->
-
-    <!--    </div>-->
-    <!--  </div>-->
-
-    
-    <%= search_form_for @q,url: search_management_users_path do |f| %>
-        <%= f.label :name_cont,'名前'%>
-        <%= f.search_field :name_cont %>
-        <%= f.submit '検索'%>
+    <%= search_form_for @q,url: management_users_path do |f| %>
+        <%= f.search_field :email_cont,placeholder: "emal" %>
+        <%= f.search_field :name_cont,placeholder: "name" %>
+        <%= f.search_field :birthday_cont,placeholder: "birthday" %>
+        <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
     <% end %>
     </div>
-
-
     <table class="table-striped">
         <tr>
             <th>メールアドレス</th>
@@ -35,16 +18,61 @@
             <th></th>
         </tr>
     
-        <% @users.each do |user| %>
+        <% @posts.each do |user| %>
         <tr>
             <td><%= user.email%></td>
             <td><%= user.name %></td>
             <td><%= user.birthday.strftime("%Y/%m/%d") %></td>
             <td>
-                <%= link_to "詳細",management_user_path(user),class:"btn btn-info"%>
-                <%= link_to "削除",management_user_path(user),method: "delete",data: {confirm:'削除しますか？'},class:"btn btn-danger"%>
+                <%= link_to "詳細",management_user_path(user),class:"link-info"%>
+                <%= link_to "削除",management_user_path(user),method: "delete",data: {confirm:'削除しますか？'},class:"link-delete"%>
             </td>
         </tr>
         <% end %>
     </table>
+    <!--<div id="pagination">-->
+    <!--    <ul>-->
+    <!--        <li><a href="#">←PREV</a></li>-->
+    <!--        <li><a href="#">1</a></li>-->
+    <!--        <li><a href="#">2</a></li>-->
+    <!--        <li><a href="#">3</a></li>-->
+    <!--        <li><a href="#">NEXT→</a></li>-->
+    <!--    </ul>-->
+    <!--</div>-->
+   <%= paginate @posts %> 
 </div>
+
+<style>
+    .pagination{
+        list-style:none;
+        display:flex;
+        padding:3px;
+        width:auto;
+        height:34px;
+        float:right;
+        margin:1rem 0;
+    }
+    
+    .pagination li{
+        width:auto;
+        height:32px;
+        background-color:#fff;
+        border:1px solid #000;
+        margin-left:10px;
+    }
+    
+    .pagination li a{
+        color:#000;
+        font-size:16px;
+        font-weight:bold;
+        line-height:32px;
+        padding:0 8px;
+        display:block;
+    }
+    
+    .pagination li a:hover{
+         background-color:#4343;
+         text-decoration:none;
+    }
+</style>
+

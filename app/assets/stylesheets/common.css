@@ -1,6 +1,28 @@
-
 body{
     background-color:#FFCC00;
+}
+
+main{
+  min-height: calc(100vh - 166px);
+  overflow:hidden;
+  /*padding-top: 106px;*/
+}
+
+header{
+  height: 106px;
+}
+
+footer{
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color:#666666;
+  text-align:center;
+  font-size:40px;
+  font-family:'Impact';
 }
 
 .bg-header {
@@ -22,10 +44,37 @@ body{
   bottom:0rem;
 }
 
+/*一覧表タイトル装飾*/
+.page-top > h1{
+    position:relative;
+    padding-left:25px;
+}
+  
+.page-top > h1:before{
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: none;
+    border-left: solid 15px transparent;
+    border-bottom: solid 15px rgb(220, 20,60);
+}
+    
+.page-top > h1:after{
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: 10px;
+    width: 100%;
+    border-bottom: solid 3px rgb(220, 20, 60);
+}
+
 /*運営側の一覧リンク*/
 nav{
     width: 100%;
-    background-color: #4343;
+    background-color:#666666;
     z-index: 10;
 }
 
@@ -33,17 +82,19 @@ nav a{
     display: inline-block;
     margin:0 auto;
     color: #fff;
-    padding:0.7rem;
-    margin-right: 1rem;
-    font-size: 1.2rem;
+    padding:2px  50px;
+    font-size: 20px;
+    border-right:1px solid #fff;
 }
 
 nav a:hover{
     text-decoration: none;
-    color: #000;
+    color: #33bad2;
 }
 
-
+.management-header{
+  padding:10px;
+}
 /*入力フォームレイアウト*/
 label{
     padding:6px 0;
@@ -215,6 +266,44 @@ table tr:last-child td:last-child {
   text-decoration: none;
   border-bottom: none;
 }
+
+/*編集ボタン*/
+.link-edit{
+  padding: 5px 10px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, #007bff 50%);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: .3s;
+  font-size:1rem;
+  /*border-bottom:2px solid #000;*/
+  /*color:#000;*/
+}
+
+.link-edit:hover{
+  background-position: -100% 0;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: none;
+}
+/*削除ボタン*/
+.link-delete{
+  padding: 5px 10px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgb(255, 0, 0) 50%);
+  background-position: 0 0;
+  background-size: 200% auto;
+  transition: .3s;
+  font-size:1rem;
+  /*border-bottom:2px solid #000;*/
+  /*color:#000;*/
+}
+
+.link-delete:hover{
+  background-position: -100% 0;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: none;
+}
+
 
 /*商品詳細*/
   .description > h1{

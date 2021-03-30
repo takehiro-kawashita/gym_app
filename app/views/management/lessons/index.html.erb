@@ -17,7 +17,7 @@
             <%= f.text_field "category", placeholder: "区分", class: "form-control" %>
         </div>
         <div class="col">
-            <%= f.submit "検索",class:"btn btn-primary"%>
+            <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
         </div>
       </div>        
     <% end %>
@@ -31,9 +31,9 @@
             <p class="col-xs-4">区分：<%= lesson.category %></p>
         </div>
         <div class="button-info">
-            <p><%= link_to "詳細",management_lesson_path(lesson),class:"btn btn-info" %></p>
-            <p><%= link_to "編集",edit_management_lesson_path(lesson),class:"btn btn-info"%></p>
-            <p><%= link_to "削除",management_lesson_path(lesson), method: "delete", data: { confirm: 'Are you sure?'},class:"btn btn-danger" %></p>
+            <p><%= link_to "詳細",management_lesson_path(lesson),class:"link-info" %></p>
+            <p><%= link_to "編集",edit_management_lesson_path(lesson),class:"link-edit"%></p>
+            <p><%= link_to "削除",management_lesson_path(lesson), method: "delete", data: { confirm: 'Are you sure?'},class:"link-delete" %></p>
         </div>
     </div>
     <% end %>    

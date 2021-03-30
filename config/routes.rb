@@ -18,9 +18,6 @@ Rails.application.routes.draw do
           member do
             post "points",to:"users#point"
           end
-          collection do
-            get 'search',to:"users#search"
-          end
         end
 
         get "/logout",to:"session#destroy"
