@@ -2,7 +2,6 @@
     <% if item.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
-  
         <ul>
         <% item.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,29 +9,35 @@
         </ul>
       </div>
     <% end %>
-  
-    <div class="form-group">
-      <label>商品名：</label>
-      <%= form.text_field :name,class:"form-control input-form" %>
-    </div>
-  
-    <div class="form-group">
-      <label>値段(税抜)：</label>
-      <%= form.number_field :price,class:"form-control input-form" %>
-    </div>
-  
-    <div class="form-group">
-      <label>在庫：</label>
-      <%= form.number_field :stock,class:"form-control input-form" %>
-    </div>
-  
-    <div class="form-group">
-      <label>概要：</label>
-      <%= form.text_area :description,class:"form-control  input-form memo" %>
-    </div>
+  <table class="table-striped">
+    <thead>
+      <tr>
+        <th>入力項目</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>商品名</td>
+        <td><%= form.text_field :name,class:"form-control input-form" %></td>
+      </tr>
+      <tr>
+        <td>値段（税抜）</td>
+        <td><%= form.number_field :price,class:"form-control input-form" %></td>
+      </tr>
+      <tr>
+        <td>在庫</td>
+        <td><%= form.number_field :stock,class:"form-control input-form" %></td>
+      </tr>
+      <tr>
+        <td>概要</td>
+        <td><%= form.text_area :description,class:"form-control memo input-form" %></td>
+      </tr>      
+    </tbody>
+  </table>
     
     <%= form.file_field :image,class:"management-image" %><br> 
-    <div class="actions">
-      <%= form.submit %>
+    <div class="actions page-top">
+      <%= form.submit "登録",class:"btn btn-success"%>
     </div>
   <% end %>

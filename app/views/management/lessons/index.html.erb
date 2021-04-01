@@ -1,22 +1,15 @@
 <div class="container">
-    <div class="page-top">
+    <div class="page-top mb-4">
         <h1 class="page-title">レッスン一覧</h1>
         <%= link_to "レッスン新規作成",new_management_lesson_path,class: "btn btn-success"%>
     </div>
-    
-    <div class="card-body">検索
+    <h2>【検索条件入力欄】</h2>
+    <div class="card-body">
     <%= form_with method: "get", local: true do |f| %>
-      <div class="form-row mb-3 mt-2">
-        <div class="col">
-            <%= f.text_field "title", placeholder: "レッスン名", class: "form-control" %>
-        </div>
-        <div class="col">
-            <%= f.date_field "started_at", placeholder: "実施日時", class: "form-control" %>
-        </div>
-        <div class="col">
-            <%= f.text_field "category", placeholder: "区分", class: "form-control" %>
-        </div>
-        <div class="col">
+        <p>レッスン名：<%= f.text_field "title", placeholder: "レッスン名", class: "card-input" %></p>
+        <p>実施日時：<%= f.date_field "started_at", placeholder: "実施日時", class: "card-input" %></p>
+        <p>区分：<%= f.text_field "category", placeholder: "区分", class: "card-input" %></p>
+        <div class="page-top">
             <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
         </div>
       </div>        
@@ -31,9 +24,9 @@
             <p class="col-xs-4">区分：<%= lesson.category %></p>
         </div>
         <div class="button-info">
-            <p><%= link_to "詳細",management_lesson_path(lesson),class:"link-info" %></p>
-            <p><%= link_to "編集",edit_management_lesson_path(lesson),class:"link-edit"%></p>
-            <p><%= link_to "削除",management_lesson_path(lesson), method: "delete", data: { confirm: 'Are you sure?'},class:"link-delete" %></p>
+            <%= link_to "【詳細】",management_lesson_path(lesson),class:"link-info" %>
+            <%= link_to "【編集】",edit_management_lesson_path(lesson),class:"link-edit"%>
+            <%= link_to "【削除】",management_lesson_path(lesson), method: "delete", data: { confirm: 'Are you sure?'},class:"link-delete" %>
         </div>
     </div>
     <% end %>    
@@ -45,10 +38,7 @@
     }
 
     .card-body{
-        font-size:20px;
-        margin:30px 0px;
-        background-color:#DCDCDC;
-        position:relative;
+        /*background-color:#DCDCDC;*/
     }
     
     .lesson-one{
@@ -65,9 +55,10 @@
         display:flex;
         position:absolute;
         right:0;
+        padding-right:2rem;
     }
 
-    p{
+    .sampleRow > p{
         margin-right:20px;
         margin-bottom:0px;
     }

@@ -1,14 +1,18 @@
 <div class="container">
-    <div class="page-top">
+    <div class="page-top mb-4">
         <h1 class="page-title">会員一覧</h1>        
     </div>
-    <div class="card-body">検索
-    <%= search_form_for @q,url: management_users_path do |f| %>
-        <%= f.search_field :email_cont,placeholder: "emal" %>
-        <%= f.search_field :name_cont,placeholder: "name" %>
-        <%= f.search_field :birthday_cont,placeholder: "birthday" %>
-        <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
-    <% end %>
+    <h2>【検索条件入力欄】</h2>
+    <div class="card-body">
+
+        <%= search_form_for @q,url: management_users_path do |f| %>
+            <p>メールアドレス：<%= f.search_field :email_cont,placeholder: "emal",class:"card-input" %></p>
+            <p>名前：<%= f.search_field :name_cont,placeholder: "name",class:"card-input" %></p>
+            <p>生年月日：<%= f.search_field :birthday_cont,placeholder: "birthday",class:"card-input" %></p>
+            <div class="page-top">
+                <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
+            </div>
+        <% end %>
     </div>
     <table class="table-striped">
         <tr>
@@ -18,14 +22,14 @@
             <th></th>
         </tr>
     
-        <% @posts.each do |user| %>
+        <% @users.each do |user| %>
         <tr>
             <td><%= user.email%></td>
             <td><%= user.name %></td>
             <td><%= user.birthday.strftime("%Y/%m/%d") %></td>
             <td>
-                <%= link_to "詳細",management_user_path(user),class:"link-info"%>
-                <%= link_to "削除",management_user_path(user),method: "delete",data: {confirm:'削除しますか？'},class:"link-delete"%>
+                <%= link_to "【詳細】",management_user_path(user),class:"link-info"%>
+                <%= link_to "【削除】",management_user_path(user),method: "delete",data: {confirm:'削除しますか？'},class:"link-delete"%>
             </td>
         </tr>
         <% end %>
@@ -39,10 +43,11 @@
     <!--        <li><a href="#">NEXT→</a></li>-->
     <!--    </ul>-->
     <!--</div>-->
-   <%= paginate @posts %> 
+   <%= paginate @users %> 
 </div>
 
 <style>
+
     .pagination{
         list-style:none;
         display:flex;

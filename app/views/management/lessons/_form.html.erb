@@ -1,47 +1,55 @@
 <div class="container">
-    <h1><%= type %></h1>
-    <%= form_with model: [:management,@lesson],local:true,method: method do |f| %>
-        <div class="form-group">
-            <label>レッスン名：</label>
-            <%= f.text_field:title, class:"form-control input-form" %>
-        </div>
-        
-        <div class="form-group">
-            <label>担当：</label>
-            <%= f.text_field:instructor,class:"form-control input-form" %>
-        </div>
-        
-        <div class="form-group">
-            <label>実施日時：</label>
-            <%= f.datetime_field:started_at, class:"form-control input-form" %>
-        </div>
-        
-        <div class="form-group">
-            <label>ランク：</label>
-            <%= f.select:level,[["低",1],["中",2],["高",3]],{},{class: "form-control input-form" }%>
-        </div>
-        
-        <div class="form-group">
-            <label>区分：</label>
-            <%= f.text_field:category, class:"form-control input-form"%>
-        </div>
-        
-        <div class="form-group">
-            <label>上限人数：</label>
-            <%= f.number_field:limits,class:"form-control input-form" %>
-        </div>
-        
-        <div class="form-group">
-            <label>料金：</label>
-            <%= f.number_field:price,class:"form-control input-form" %>
-        </div>
-        
-        <div class="form-group">
-            <label>概要：</label>
-            <%= f.text_area:description,class:"form-control  input-form memo" %>
-        </div>
-        <%= f.file_field :image ,class:"management-image"%><br>    
+    <div class="page-top mb-5">
+        <h1><%= type %></h1>
         <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary" %>
-        <%= f.submit type,class:"btn btn-primary"%>
+    </div>
+
+    <%= form_with model: [:management,@lesson],local:true,method: method do |f| %>
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>入力項目</th>
+                <th></th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr>
+                <td>レッスン名</td>
+                <td><%= f.text_field:title, class:"form-control input-form" %></td>
+            </tr>
+            <tr>
+                <td>担当</td>
+                <td><%= f.text_field:instructor,class:"form-control input-form" %></td>
+            </tr>
+            <tr>
+                <td>実施日時</td>
+                <td><%= f.datetime_field:started_at, class:"form-control input-form" %></td>
+            </tr>
+            <tr>
+                <td>ランク</td>
+                <td><%= f.select:level,[["低",1],["中",2],["高",3]],{},{class: "form-control input-form" }%></td>
+            </tr>
+            <tr>
+                <td>区分</td>
+                <td><%= f.text_field:category, class:"form-control input-form"%></td>
+            </tr>
+            <tr>
+                <td>上限人数</td>
+                <td><%= f.number_field:limits,class:"form-control input-form" %></td>
+            </tr>
+            <tr>
+                <td>料金</td>
+                <td><%= f.number_field:price,class:"form-control input-form" %></td>
+            </tr>
+            <tr>
+                <td>概要</td>
+                <td><%= f.text_area:description,class:"form-control  input-form memo" %></td>
+            </tr>
+        </tbody>
+    </table>
+        <%= f.file_field :image ,class:"management-image"%><br>    
+        <div class="page-top mb-3">
+            <%= f.submit "登録",class:"btn btn-success"%>    
+        </div>
     <% end %>
 </div>

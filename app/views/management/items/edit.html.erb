@@ -1,8 +1,8 @@
 <div class="container">
-    <h1>商品情報編集</h1>
-    
+    <div class="page-top mb-5">
+        <h1>商品情報編集  <%= link_to '【詳細】', [:management,@item],class:"link-info" %></h1>        
+        <%= link_to '一覧', management_items_path,class:"btn btn-secondary" %>        
+    </div>
     <%= render 'form', item: @item %>
-    
-    <%= link_to '詳細', [:management,@item] %>
-    <%= link_to '戻る', management_items_path %>
+
 </div>

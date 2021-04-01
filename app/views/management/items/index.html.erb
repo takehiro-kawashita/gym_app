@@ -1,24 +1,18 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <div class="page-top">
+  <div class="page-top mb-4">
     <h1 class="page-title">商品一覧</h1>
     <%= link_to '新規商品登録', new_management_item_path,class:"btn btn-success" %>
   </div>
-  <div class="card-body">検索
-  <%= form_with method: "get", local: true do |f| %>
-    <div class="form-row mb-3 mt-2">
-      <div class="col">
-          <%= f.text_field "name", placeholder: "商品名", class: "form-control" %>
-      </div>
-      <div class="col">
-          <%= f.text_field "price", placeholder: "値段", class: "form-control" %>
-      </div>
-
-      <div class="col button-info">
-          <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
-      </div>
-    </div>
-    <% end %>
+  <h2>【検索条件入力欄】</h2>
+  <div class="card-body">
+    <%= form_with method: "get", local: true do |f| %>
+            <p>商品名：<%= f.text_field "name", placeholder: "商品名", class: "card-input" %></p>
+            <p>値段：<%= f.text_field "price", placeholder: "値段", class: "card-input" %></p>
+            <div class="page-top">
+                <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
+            </div>
+      <% end %>
   </div>
   <table class="table-striped">
     <thead>
@@ -32,10 +26,10 @@
       <% @items.each do |item| %>
         <tr>
           <td><%= item.name %></td>
-          <td><%= item.price %></td>
-          <td><%= link_to '詳細', management_item_path(item),class:"link-info"%>
-              <%= link_to '編集', edit_management_item_path(item),class:"link-edit" %>
-              <%= link_to '削除', management_item_path(item), method: :delete, data: { confirm: 'Are you sure?'},class:"link-delete" %></td>
+          <td>￥<%= item.price.to_s(:delimited,delimiter:',') %>円</td>
+          <td><%= link_to '【詳細】', management_item_path(item),class:"link-info"%>
+              <%= link_to '【編集】', edit_management_item_path(item),class:"link-edit" %>
+              <%= link_to '【削除】', management_item_path(item), method: :delete, data: { confirm: 'Are you sure?'},class:"link-delete" %></td>
         </tr>
       <% end %>
     </tbody>

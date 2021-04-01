@@ -1,17 +1,17 @@
 <div class="container">
     <div class="page-top">
-        <h1><%= @lesson.title%></h1>
+        <h1><%= @lesson.title%><%= link_to "【編集】",edit_management_lesson_path,class:"link-edit ml-3" %></h1>
         <div class="btn">
-            <%= link_to "編集",edit_management_lesson_path,class:"link-edit" %>
+            
             <%= link_to "一覧",management_lessons_path,class:"btn btn-secondary"%>
         </div>
     </div>
     <div class="content mb-5">
         <div class="show-image">
-            <%= image_tag @lesson.image %>
+            <%= image_tag @lesson.image if @lesson.image.attached? %>
         </div>
         
-n        <div class="description">
+        <div class="description">
             <h2>----レッスン概要-----</h2>
             <p>担当:<%= @lesson.instructor %></p>
             <p>実施日時：<%= @lesson.started_at.strftime("%Y/%m/%d %H:%M") %>〜</p>

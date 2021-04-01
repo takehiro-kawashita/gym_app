@@ -9,7 +9,7 @@ class Management::UsersController < ManagementController
         @users = @users.where(birthday: params[:birthday]) if params[:birthday].present?
         @q = User.ransack(params[:q])
         @users = @q.result(distinct: true)
-        @posts = User.all.page(params[:page]).per(5)
+        @users = User.all.page(params[:page]).per(5)
         
     end
     

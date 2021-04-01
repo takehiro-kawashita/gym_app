@@ -1,21 +1,62 @@
 <div class="container">
-    <h1>会員詳細</h1>
-    
-    <p>メールアドレス：<%= @user.email %></p>
-    <p>名前：<%= @user.name %></p>
-    <p>所持ポイント：<%= @user.point %></p>
-    <p>生年月日：<%= @user.birthday.strftime("%Y/%m/%d") %></p>
-    <p>住所：<%= @user.address %></p>
-    <p>性別：<%= @user.sex %></p>
-    
+    <div class="page-top">
+        <h1>会員詳細</h1>        
+    </div>
+    <div class="member-info">
+            <div class="page-top mb-3">
+        <%= link_to "戻る",management_users_path,class:"btn btn-secondary" %>                            
+    </div>
+        <table class="mb-5 table-striped">
+            <tbody>
+                <tr>
+                    <th>基本情報</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>メールアドレス：</td>
+                    <td><%= @user.email%></td>
+                </tr>
+                <tr>
+                    <td>名前：</td>    
+                    <td><%= @user.name %></td>
+                </tr>
+                <tr>
+                    <td>所持ポイント：</td>
+                    <td><%= @user.point %></td>
+                </tr>
+                <tr>
+                    <td>生年月日：</td>
+                    <td><%= @user.birthday.strftime("%Y/%m/%d") %></td>
+                </tr>
+                <tr>
+                    <td>住所：</td>
+                    <td><%= @user.address %></td>
+                </tr>
+                <tr>
+                    <td>性別：</td>
+                    <td><%= @user.sex %></td>
+                </tr>
+            </tbody>
+        </table>
     <%= form_with model: @point,url: points_management_user_path,method: "post",local:true do |f| %>
         <div class="form-group">
-            <label>ポイント</label>
-            <%= f.number_field :point,class:"form-control" %>
+                <label>ポイント:</label>
+                <%= f.number_field :point,class:"form-control input-form" %>
+            </div>
+            <div class="page-top">
+                <%= f.submit '付与',class:"btn btn-success"%>            
+            </div>
         </div>
-        <%= f.submit '付与',class:"btn btn-success"%>
     <% end %>
-    
-    <%= link_to "戻る",management_users_path,class:"btn btn-secondary" %>    
 </div>
 
+<style>
+    .member-info{
+        width:70%;
+        padding:2rem;
+    }
+    
+    .member-info th{
+        font-size:1.3rem;
+    }
+</style>

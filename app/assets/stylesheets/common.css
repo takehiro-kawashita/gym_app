@@ -3,9 +3,9 @@ body{
 }
 
 main{
-  min-height: calc(100vh - 166px);
+  min-height: calc(100vh - 60px);
   overflow:hidden;
-  /*padding-top: 106px;*/
+  padding-top: 106px;
 }
 
 header{
@@ -107,14 +107,14 @@ label{
 }
 
 .input-form{
-    position:absolute;
+    /*position:absolute;*/
     width:20rem;
     left:6rem;
 }
 
 .memo{
-    width:30rem;
-    height:4rem;
+    width:35rem;
+    height:6rem;
 }
 
 .management-image{
@@ -133,7 +133,7 @@ img{
     height:25rem;
     width:30rem;
 }
- 詳細画面
+ /*詳細画面*/
  .show-image{
     flex:1;
     margin-right: 4rem;
@@ -162,8 +162,16 @@ img{
 /*検索画面*/
 .card-body{
     border:solid 2px #000000;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
+    padding:2rem;
+    position: relative;
 }
+
+ .card-input{
+   position: absolute;
+   left: 15rem;
+   width:30rem;
+ }
 
 /*ユーザ側ログイン画面*/
   .text-center{
@@ -229,7 +237,7 @@ table td{
   text-align: center;
   /*border-left: 1px solid #a8b7c5;*/
   /*border-left: 1px solid #000;*/
-  border-bottom: 1px solid #000;
+  /*border-bottom: 1px solid #000;*/
   border-top:none;
   /*box-shadow: 0px -1px 1px 1px #000 inset;*/
   width: 25%;
@@ -257,7 +265,7 @@ table tr:last-child td:last-child {
   transition: .3s;
   font-size:1rem;
   /*border-bottom:2px solid #000;*/
-  /*color:#000;*/
+  color:#000;
 }
 
 .link-info:hover{
@@ -276,7 +284,7 @@ table tr:last-child td:last-child {
   transition: .3s;
   font-size:1rem;
   /*border-bottom:2px solid #000;*/
-  /*color:#000;*/
+  color:#000;
 }
 
 .link-edit:hover{
@@ -294,7 +302,7 @@ table tr:last-child td:last-child {
   transition: .3s;
   font-size:1rem;
   /*border-bottom:2px solid #000;*/
-  /*color:#000;*/
+  color:#000;
 }
 
 .link-delete:hover{

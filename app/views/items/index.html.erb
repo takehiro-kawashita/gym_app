@@ -1,22 +1,16 @@
 <div class="container">
-  <div class="page-top">
+  <div class="page-top mb-4">
     <h1>商品一覧</h1>
       <%= link_to 'マイページ',gym_apps_path,class:"btn btn-secondary"%>
   </div>
-    
-     <div class="card-body">検索
+    <h2>【検索条件入力欄】</h2>
+     <div class="card-body">
       <%= form_with method: "get", local: true do |f| %>
-      <div class="form-row mb-3 mt-2">
-        <div class="col">
-          <%= f.text_field "name", placeholder: "商品名", class: "form-control" %>
-        </div>
-        <div class="col">
-          <%= f.text_field "price", placeholder: "値段", class: "form-control" %>
-        </div>
-        <div class="col button-info">
-          <%= f.submit "検索",class:"btn btn-primary"%>
-        </div>
-      </div>
+          <p>商品名：<%= f.text_field "name", placeholder: "商品名", class: "card-input" %></p>
+          <p>値段（税抜）：<%= f.text_field "price", placeholder: "値段", class: "card-input" %></p>
+          <div class="page-top">
+            <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
+          </div>
       <% end %>
     </div>  
      <table class="table-striped">
@@ -31,8 +25,8 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= item.name %></td>
-              <td><%= item.price.to_s(:delimited,delimiter:',') %></td>
-              <td><%= link_to '商品詳細', item_path(item),class:"link-info"%>
+              <td>￥<%= item.price.to_s(:delimited,delimiter:',') %>円</td>
+              <td><%= link_to '【商品詳細】', item_path(item),class:"link-info"%>
             </tr>
           <% end %>
         </tbody>

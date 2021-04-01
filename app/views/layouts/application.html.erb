@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="fixed-top">
       <nav class="bg-header">
         <h1>SILVER'S GYM</h1>
           <% if user_signed_in? %>
@@ -28,7 +28,6 @@
             <%= link_to 'ログイン', new_user_session_path,class:"btn btn-primary" %>
           </div>
           <% end %>
-
       </nav>
     </header>
     <main>
