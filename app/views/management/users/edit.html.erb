@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="page-top mb-5">
+        <h1>会員情報編集</h1>
+        <%= link_to "一覧",management_users_path,class:"btn btn-secondary" %>
+    </div>
+
+    <%= form_with(model: [:management,@user],local: true) do |f| %>
+        <table class="table-striped mb-5">
+            <thead>
+                <tr>
+                    <th>入力項目</th>
+                    <th></th>
+                </tr>            
+            </thead>
+            <tbody>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><%= f.text_field:email, class:"form-control input-form" %></td>
+                </tr>
+                <tr>
+                    <td>名前</td>
+                    <td><%= f.text_field:name,class:"form-control input-form" %></td>
+                </tr>
+                <tr>
+                    <td>所持ポイント</td>
+                    <td><%= f.number_field:point, class:"form-control input-form" %></td>
+                </tr>
+                <tr>
+                    <td>生年月日</td>
+                    <td><%= f.date_field:birthday, class:"form-control input-form" %></td>
+                </tr>
+                <tr>
+                    <td>住所</td>
+                    <td><%= f.text_field:address, class:"form-control input-form" %></td>
+                </tr>
+                <tr>
+                    <td>所持ポイント</td>
+                    <td><%= f.text_field:sex, class:"form-control input-form" %></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-top ">
+            <%= f.submit "登録",class:"btn btn-success"%>    
+        </div>
+    <% end %>
+</div>

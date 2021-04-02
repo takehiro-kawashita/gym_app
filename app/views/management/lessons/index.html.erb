@@ -5,31 +5,31 @@
     </div>
     <h2>【検索条件入力欄】</h2>
     <div class="card-body">
-    <%= form_with method: "get", local: true do |f| %>
-        <p>レッスン名：<%= f.text_field "title", placeholder: "レッスン名", class: "card-input" %></p>
-        <p>実施日時：<%= f.date_field "started_at", placeholder: "実施日時", class: "card-input" %></p>
-        <p>区分：<%= f.text_field "category", placeholder: "区分", class: "card-input" %></p>
-        <div class="page-top">
-            <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
-        </div>
-      </div>        
-    <% end %>
+        <%= search_form_for @q,url: management_lessons_path do |f| %>
+            <p>レッスン名：<%= f.search_field :title_cont, placeholder: "レッスン名", class: "card-input" %></p>
+            <p>実施日時：<%= f.search_field :started_at_gteq, placeholder: "実施日時", class: "card-input" %></p>
+            <p>区分：<%= f.search_field :category_cont, placeholder: "区分", class: "card-input" %></p>
+            <div class="page-top">
+                <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
+            </div>
+        <% end %>
     </div>
 
     <% @lessons.each do |lesson|%>
-    <div class="lesson-one">
-        <div class="row sampleRow">
-            <p class="col-xs-4">レッスン名：<%= lesson.title %></p>
-            <p class="col-xs-4">実施日時：<%= lesson.started_at.strftime("%Y/%m/%d %H:%M") %></p>
-            <p class="col-xs-4">区分：<%= lesson.category %></p>
+        <div class="lesson-one">
+            <div class="row sampleRow">
+                <p class="col-xs-4">レッスン名：<%= lesson.title %></p>
+                <p class="col-xs-4">実施日時：<%= lesson.started_at.strftime("%Y/%m/%d %H:%M") %></p>
+                <p class="col-xs-4">区分：<%= lesson.category %></p>
+            </div>
+            <div class="button-info">
+                <%= link_to "【詳細】",management_lesson_path(lesson),class:"link-info" %>
+                <%= link_to "【編集】",edit_management_lesson_path(lesson),class:"link-edit"%>
+                <%= link_to "【削除】",management_lesson_path(lesson), method: "delete", data: { confirm: 'Are you sure?'},class:"link-delete" %>
+            </div>
         </div>
-        <div class="button-info">
-            <%= link_to "【詳細】",management_lesson_path(lesson),class:"link-info" %>
-            <%= link_to "【編集】",edit_management_lesson_path(lesson),class:"link-edit"%>
-            <%= link_to "【削除】",management_lesson_path(lesson), method: "delete", data: { confirm: 'Are you sure?'},class:"link-delete" %>
-        </div>
-    </div>
-    <% end %>    
+    <% end %>
+    <%= paginate @lessons %>
 </div>
 
 <style>

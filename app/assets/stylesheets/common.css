@@ -71,6 +71,38 @@ footer{
     border-bottom: solid 3px rgb(220, 20, 60);
 }
 
+.pagination{
+    list-style:none;
+    display:flex;
+    padding:3px;
+    width:auto;
+    height:34px;
+    float:right;
+    margin:1rem 0;
+}
+  
+.pagination li{
+    width:auto;
+    height:32px;
+    background-color:#fff;
+    border:1px solid #000;
+    margin-left:10px;
+}
+    
+.pagination li a{
+    color:#000;
+    font-size:16px;
+    font-weight:bold;
+    line-height:32px;
+    padding:0 8px;
+    display:block;
+}
+    
+.pagination li a:hover{
+     background-color:#4343;
+     text-decoration:none;
+}
+
 /*運営側の一覧リンク*/
 nav{
     width: 100%;

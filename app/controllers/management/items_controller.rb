@@ -5,7 +5,8 @@ class Management::ItemsController < ManagementController
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true).page(params[:page]).per(5)
   end
 
   # GET /items/1 or /items/1.json

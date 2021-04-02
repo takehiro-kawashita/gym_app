@@ -2,10 +2,8 @@ class LessonsController < ApplicationController
     before_action :set_lesson,only:[:show,:edit,:update]
 
     def index
-        @lessons = Lesson.all
-        # @lessons = @lessons.where(title: params[:title]) if params[:title].present?
-        # @lessons = @lessons.where(started_at: params[:started_at]) if params[:started_at].present?
-        # @lessons = @lessons.where(category: params[:category]) if params[:category].present?
+        @q = Lesson.ransack(params[:q])
+        @lessons = @q.result(distinct: true).page(params[:page]).per(5)
     end
     
     def show

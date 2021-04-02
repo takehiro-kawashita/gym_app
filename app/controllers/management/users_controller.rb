@@ -1,27 +1,35 @@
 class Management::UsersController < ManagementController
-    before_action :set_user,only:[:show,:point,:destroy]
+    before_action :set_user,only:[:show,:edit,:point,:update,:destroy]
     # before_action :set_q,only: [ :index,:search]
     
     def index
-        @users = User.all
-        @users = @users.where(email: params[:email]) if params[:email].present?
-        @users = @users.where(name: params[:name]) if params[:name].present?
-        @users = @users.where(birthday: params[:birthday]) if params[:birthday].present?
         @q = User.ransack(params[:q])
-        @users = @q.result(distinct: true)
-        @users = User.all.page(params[:page]).per(5)
-        
+        @users = @q.result(distinct: true).page(params[:page]).per(5)
     end
     
     def point
         @user.point += params[:point].to_i
         @user.save
         redirect_to management_user_path(params[:id])
-        
     end
     
     def show
     end
+    
+    def edit
+    end
+    
+    def update
+        user_params = set_params
+        if @user.update(user_params)
+            flash[:notice] = "会員情報を更新しました。"
+            redirect_to management_user_path(@user)
+        else
+            flash[:alert] = "会員情報の更新に失敗しました。"
+            render :edit
+        end
+    end
+    
     
     def destroy
         @user.destroy
@@ -38,6 +46,4 @@ class Management::UsersController < ManagementController
     def set_params
         params.require(:user).permit(:email,:name,:point,:birthday,:address,:male)
     end
-    
-    
 end
