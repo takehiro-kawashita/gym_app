@@ -2,12 +2,12 @@
     <div class="content">
         <div class="show-image">
             <h2 style="font-family:'Impact'">MENU</h2>
-            <p>現在の所持ポイント:<%= @point %></p>
+            <p>現在の所持ポイント: <span><%= current_user.point %></span></p>
             <ul>
                 <li><%= link_to '商品一覧',items_path,class:"mypage-list" %></li>
                 <li><%= link_to 'レッスン一覧・検索',lessons_path,class:"mypage-list" %></li>
                 <li><%= link_to '予約済みレッスン',reservations_path,class:"mypage-list" %></li>
-                <li><%= link_to '所持ポイント確認',points_path,class:"mypage-list" %></li>
+                <!--<li><%= link_to '所持ポイント確認',points_path,class:"mypage-list" %></li>-->
             </ul>
         </div>
         <div class="description">
@@ -81,6 +81,12 @@
     .show-image{
         border-right:1px solid #000;
         padding-right:1rem;
+    }
+    
+    .show-image p span{
+        color:red;
+        font-size:2rem;
+        padding:0 0.5rem;
     }
 </style>
 

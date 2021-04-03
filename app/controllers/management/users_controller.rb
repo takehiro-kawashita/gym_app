@@ -13,6 +13,8 @@ class Management::UsersController < ManagementController
         redirect_to management_user_path(params[:id])
     end
     
+    
+    
     def show
     end
     
