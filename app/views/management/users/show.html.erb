@@ -36,10 +36,27 @@
                     <td>性別</td>
                     <td><%= @user.sex %></td>
                 </tr>
+            </tbody>
+        </table>
+        <div class="page-top">
+            <h1>予約レッスン</h1>
+        </div>
+        <table class="table-striped mt-3">
+            <thead>
                 <tr>
-                    <td></td>
-                    <td><%= @user.reservation %></td>
+                    <th>レッスン名</th>
+                    <th>実施日時</th>
+                    <th>区分</th>
                 </tr>
+            </thead>
+            <tbody>
+                <% @user.reservations.each do |res| %>
+                    <tr>
+                        <td><%= res.lesson.title %></td>
+                        <td><%= res.lesson.started_at.strftime("%Y/%m/%d %H:%M") %></td>
+                        <td><%= res.lesson.category %></td>
+                    </tr>
+                <% end %>
             </tbody>
         </table>
 </div>

@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class ReservationsController < UserController
     
     def index
         @reservations = current_user.reservations

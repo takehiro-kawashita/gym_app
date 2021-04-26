@@ -12,10 +12,9 @@ class Management::UsersController < ManagementController
         @user.save
         redirect_to management_user_path(params[:id])
     end
-    
-    
-    
+
     def show
+
     end
     
     def edit

@@ -1,24 +1,21 @@
 require 'rails_helper'
 
-RSpec.describe LessonsController, type: :request do
+RSpec.describe ItemsController, type: :request do
     let(:user) { create(:user) }
     before do
       sign_in user
     end
     
     describe '#index' do
-        context 'lessons exist' do
-        before do
-            @lesson = FactoryBot.create(:lesson)
-        end
+        context 'items exist' do
             it 'response success' do
-                get '/lessons'
+                get '/items'
                 expect(response).to be_successful
             end
         end
-        context 'lessons blank' do
-             it 'response success' do
-                get '/lessons'
+        context 'items blank' do
+            it 'response success' do
+                get '/items'
                 expect(response).to be_successful
             end
         end
@@ -26,10 +23,10 @@ RSpec.describe LessonsController, type: :request do
     
     describe '#show' do
         before do
-            @lesson = FactoryBot.create(:lesson)
+            @item = FactoryBot.create(:item)
         end
         it 'response success' do
-            get "/lessons/#{@lesson.id}"
+            get "/items/#{@item.id}"
             expect(response).to be_successful
         end
     end

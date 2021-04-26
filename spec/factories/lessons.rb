@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :lesson do
-      
+
       title { "Body Pump" }
       level { 1 }
       category {"脂肪燃焼"}
