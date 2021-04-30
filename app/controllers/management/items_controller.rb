@@ -1,7 +1,5 @@
 class Management::ItemsController < ManagementController
   before_action :set_item, only: [:show,:edit,:update,:destroy ]
-  before_action :login
-
   # GET /items or /items.json
   def index
     @q = Item.ransack(params[:q])
@@ -38,15 +36,11 @@ class Management::ItemsController < ManagementController
 
   # PATCH/PUT /items/1 or /items/1.json
   def update
-    respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to [:management,@item], notice: "Item was successfully updated." }
-        format.json { render :show, status: :ok, location: @item }
+        redirect_to [:management,@item], notice: "Item was successfully updated."
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+         render :edit
       end
-    end
   end
 
   # DELETE /items/1 or /items/1.json
@@ -68,10 +62,5 @@ class Management::ItemsController < ManagementController
     def item_params
       params.require(:item).permit(:name, :price, :stock, :description, :image)
     end
-    
-    def login
-      if session[:auth] == false
-        redirect_to management_authenticate_path
-      end
-    end
+
 end

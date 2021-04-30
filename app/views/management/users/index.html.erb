@@ -19,7 +19,7 @@
             <th>メールアドレス</th>
             <th>名前</th>
             <th>生年月日</th>
-            <th></th>
+            <th>ユーザ詳細 　ポイント付与</th>
         </tr>
     
         <% @users.each do |user| %>
@@ -28,9 +28,13 @@
             <td><%= user.name %></td>
             <td><%= user.birthday.strftime("%Y/%m/%d") %></td>
             <td>
-                <%= link_to "【詳細】",management_user_path(user),class:"link-info"%>
-                <%= link_to "【編集】",edit_management_user_path(user),class:"link-edit"%>
-                <%= link_to "【削除】",management_user_path(user),method: "delete",data: {confirm:'削除しますか？'},class:"link-delete"%>
+                <div class="user_info">
+                    <%= link_to "【詳細】",management_user_path(user),class:"link-info"%>
+                    <%= form_with(url:points_management_user_url(user.id),local: true) do |f| %>
+                        <%= f.number_field:point,placeholder:'ポイント',class:"user_point" %>
+                        <%= f.submit "付与",class:"btn btn-success"%>
+                    <% end %>
+                </div>
             </td>
         </tr>
         <% end %>
@@ -48,6 +52,22 @@
 </div>
 
 <style>
+    .user_info{
+        display:flex;
+        flex-direction:row;
+        
+    }
+    
+    .link-info{
+        width:90px;
+        margin-right:5px;
+    }
+    .user_point{
+        width:5.3rem;
+        margin-right:10px;
+    }
+    
+
 
     /*.pagination{*/
     /*    list-style:none;*/

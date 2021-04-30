@@ -30,8 +30,7 @@ class Management::UsersController < ManagementController
             render :edit
         end
     end
-    
-    
+
     def destroy
         @user.destroy
         flash[:notice] = "削除しました。"

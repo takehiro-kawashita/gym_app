@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe LessonsController,type: :request do
-    let(:user) { create(:user) }
-    before do
-      sign_in user
-    end 
+     before do
+      allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return({ auth: true })
+    end
     
     describe '#index' do
         context 'lessons exist' do
@@ -91,13 +90,23 @@ RSpec.describe LessonsController,type: :request do
     end
     
     describe '#update' do
-        context '更新失敗' do
+        context '更新成功' do
             let(:lesson) {create(:lesson)}
             let(:params){ {lesson:{ title:"ランニング",level:1,category:"脂肪燃焼",started_at:"2021/01/01 00:00",description:"xxxxxxxxxxxxxxxxxx",price:1000,instructor:"川下",limits:10 }} }           
             
             it 'response redirect' do
                 patch "/management/lessons/#{lesson.id}" ,params: params
                 expect(response.status).to redirect_to management_lesson_path(lesson.id)
+            end
+        end
+        
+        context '更新失敗' do
+            let(:lesson) {create(:lesson)}
+            let(:params){ {lesson:{ title:"",level:1,category:"",started_at:"",description:"",price:1000,instructor:"",limits:10 }} }           
+            
+            it 'response redirect' do
+                patch "/management/lessons/#{lesson.id}" ,params: params
+                expect(response).to be_successful
             end
         end
     end

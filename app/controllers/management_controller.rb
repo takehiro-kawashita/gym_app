@@ -3,7 +3,7 @@ class ManagementController < ApplicationController
     before_action :login
 
     def login
-      if session[:auth] == false
+      unless session[:auth]
         redirect_to management_authenticate_path
       end
     end

@@ -11,10 +11,10 @@ RSpec.describe Management::SessionController,type: :request do
     describe '#create' do
         context 'login success' do
             let(:session) {create(:session)}
-            let(:params) {{ session: {password:'password'} } }
+            let(:params) {{ code:'password' } }
             it 'login' do
                 post '/management/authenticate',params: params
-                expect(response).to be_successful
+                expect(response).to redirect_to management_lessons_path
             end
         end
         
@@ -29,6 +29,9 @@ RSpec.describe Management::SessionController,type: :request do
     end
     
     describe '#destroy' do
+        before do
+          allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return({ auth: true })
+        end
         it 'logout' do
             get '/management/logout'
             expect(response.status).to redirect_to management_authenticate_path

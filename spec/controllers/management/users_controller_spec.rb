@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Management::UsersController,type: :request do
-    let(:user) { create(:user) }
     before do
-      sign_in user
-    end 
+      allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return({ auth: true })
+    end
     
     describe '#index' do
         context 'users exist' do

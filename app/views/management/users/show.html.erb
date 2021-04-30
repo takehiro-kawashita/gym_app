@@ -1,6 +1,10 @@
 <div class="container">
     <div class="page-top">
-        <h1>会員詳細<%= link_to "【編集】",edit_management_user_path,class:"link-edit ml-3" %></h1>        
+        <h1>
+            会員詳細
+            <%= link_to "【編集】",edit_management_user_path,class:"link-edit ml-3" %>
+            <%= link_to "【削除】",management_users_path,method: "delete",data: {confirm:'削除しますか？'},class:"link-delete"%>
+        </h1>        
     </div>
     <div class="member-info">
             <div class="page-top mb-3">

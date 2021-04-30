@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe ItemsController,type: :request do
-    let(:user) { create(:user) }
-    before do
-      sign_in user
-    end 
+RSpec.describe Management::ItemsController,type: :request do
+     before do
+      allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return({ auth: true })
+    end
     
     describe '#index' do
         context 'items exist' do
@@ -96,13 +95,23 @@ RSpec.describe ItemsController,type: :request do
     end
     
     describe '#update' do
-        context '更新失敗' do
+        context '更新成功' do
             let(:item) {create(:item)}
             let(:params){ {item:{ name:"ベンチプレス",price:300000,stock:3,description:"xxx" }} }
             
             it 'response redirect' do
                 patch "/management/items/#{item.id}" ,params: params
                 expect(response.status).to redirect_to management_item_path(item.id)
+            end
+        end
+        
+        context '更新失敗' do
+            let(:item) {create(:item)}
+            let(:params){ {item:{ name:"",price:300000,stock:3,description:"" }} }
+            
+            it 'response redirect' do
+                patch "/management/items/#{item.id}" ,params: params
+                expect(response).to be_successful
             end
         end
     end

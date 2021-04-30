@@ -18,8 +18,5 @@ class LessonsController < UserController
     def set_lesson
         @lesson = Lesson.find(params[:id])
     end
-    
-    def set_params
-        params.require(:lesson).permit(:title,:level,:category,:started_at,:description,:price,:instructor,:limits,:image)
-    end
+   
 end

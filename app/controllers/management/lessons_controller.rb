@@ -1,8 +1,6 @@
 class Management::LessonsController < ManagementController
     before_action :set_lesson,only:[:show,:edit,:update,:destroy]
-    before_action :login
-    
-    
+
     def index
         @q = Lesson.ransack(params[:q])
         @lessons = @q.result(distinct: true).page(params[:page]).per(5)
@@ -60,10 +58,5 @@ class Management::LessonsController < ManagementController
     def set_params
         params.require(:lesson).permit(:title,:level,:category,:started_at,:description,:price,:instructor,:limits,:image)
     end
-    
-    def login
-        if session[:auth] == false
-            redirect_to management_authenticate_path
-        end
-    end
+
 end

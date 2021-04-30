@@ -8,7 +8,7 @@
     <div class="content mb-5">
         <div class="show-image">
             <%= image_tag @lesson.image if @lesson.image.attached? %>
-            <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation" %>  
+            <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation",id:"rev" %>  
         </div>
 
         <div class="description">
@@ -33,5 +33,18 @@
     h1{
         font-family:'Impact';
     }
-
+    
+    .btn-reservation.rev-active{
+        background-color:gray;
+        color:#fff;
+    }
 </style>
+
+<script>
+    const RevElement = document.getElementById('rev')
+    
+    RevElement.addEventListener('click',function(){
+        RevElement.classList.add('rev-active');
+    });
+</script>
+
