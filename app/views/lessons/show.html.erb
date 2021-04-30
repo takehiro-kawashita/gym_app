@@ -2,13 +2,16 @@
     <div class="page-top mb-4">
         <h1><%= @lesson.title%></h1>
         <%= link_to "戻る",lessons_path,class:"btn btn-secondary"%>        
-        
     </div>
-
     <div class="content mb-5">
+        
         <div class="show-image">
             <%= image_tag @lesson.image if @lesson.image.attached? %>
-            <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation",id:"rev" %>  
+            <% if current_user.reservations.includes(@lesson.id) then%>
+                <%= link_to "予約済", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation rev-active",id:"rev" %>  
+            <% else %>
+                <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation",id:"rev" %>  
+            <% end %>
         </div>
 
         <div class="description">
@@ -39,12 +42,3 @@
         color:#fff;
     }
 </style>
-
-<script>
-    const RevElement = document.getElementById('rev')
-    
-    RevElement.addEventListener('click',function(){
-        RevElement.classList.add('rev-active');
-    });
-</script>
-
