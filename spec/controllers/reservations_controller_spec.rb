@@ -35,18 +35,19 @@ RSpec.describe ReservationsController,type: :request do
         before do
             @lesson = FactoryBot.create(:lesson)
         end
-         it 'response success' do
+        it 'response success' do
              post "/reservations",params:{lesson_id:@lesson.id}
              expect(response).to redirect_to lesson_path(@lesson.id)
-         end
-         it 'response success' do
-              expect {
-                post "/reservations", params:{lesson_id:@lesson.id}
-              }.to change{ Reservation.count }.by(1)
-         end
-        context 'データがある時' do
+        end
+        context '予約が完了する場合(予約成功)' do
+            it 'response success' do
+                  expect {
+                    post "/reservations", params:{lesson_id:@lesson.id}
+                  }.to change{ Reservation.count }.by(1)
+            end
+        end
+        context '既に予約データがある場合(予約失敗)' do
             before do
-                @lesson = FactoryBot.create(:lesson)
                 Reservation.create( lesson_id: @lesson.id,user_id: user.id)
             end
             it 'response success' do

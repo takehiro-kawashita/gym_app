@@ -1,29 +1,30 @@
 body{
     background-color:#FFCC00;
 }
-
+/*メイン画面サイズ*/
 main{
   min-height: calc(100vh - 60px);
   overflow:hidden;
   padding-top: 106px;
-}
 
+}
+/*ヘッダーの高さ*/
 header{
   height: 106px;
 }
 
+/*フッターデザイン*/
 footer{
-  /*position: absolute;*/
-  bottom: 0;
-  width: 100%;
-  color: #fff;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color:#666666;
-  text-align:center;
-  font-size:40px;
-  font-family:'Impact';
-}
+      bottom: 0;
+      width: 100%;
+      color: #fff;
+      height: 60px;
+      background-color:#666666;
+      text-align:center;
+      font-size:40px;
+      font-family:'Impact';
+    }
+
 
 .bg-header {
    background-image:linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
@@ -139,7 +140,6 @@ label{
 }
 
 .input-form{
-    /*position:absolute;*/
     width:20rem;
     left:6rem;
 }
@@ -180,7 +180,6 @@ img{
 .page-top{
     display: flex;
     position: relative;
-    
 }
 
 .page-top > .btn{
@@ -198,15 +197,14 @@ img{
     padding:2rem;
     position: relative;
 }
-
- .card-input{
+.card-input{
    position: absolute;
    left: 15rem;
    width:30rem;
  }
 
 /*ユーザ側ログイン画面*/
-  .text-center{
+    .text-center{
     padding:2.5rem;
     max-width: 300px;
     width:30%;
@@ -215,178 +213,368 @@ img{
     background-color:#c0c0c0;
     filter: drop-shadow(0 0 0.2rem gray);    
   }
-  
- .text-center > h2{
+    .text-center > h2{
     font-family:'Impact';
     font-size:3rem;
     margin-bottom: 3rem;
   }
-  
-  .user-form{
+    .user-form{
     width:100%;
     margin-bottom:1rem;
   }
-  
-  input:focus{
+    input:focus{
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
     border: solid 2px #666;
   }
-  
-  .field-text{
+    .field-text{
     margin:2rem 0;
   }
   
   
-/*一覧表デザイン*/
-  table{
-  width: 100%;
-  border-collapse:separate;
-  border-spacing: 0;
-}
+/*表デザイン*/
+    table{
+      width: 100%;
+      border-collapse:separate;
+      border-spacing: 0;
+    }
+    table th:first-child{
+      border-radius: 5px 0 0 0;
+    }
+    table th:last-child{
+      border-radius: 0 5px 0 0;
+      border-right: 1px solid #3c6690;
+    }
+    table th{
+      text-align: center;
+      color:white;
+      background: linear-gradient(#829ebc,#225588);
+      border-left: 1px solid #3c6690;
+      border-top: 1px solid #3c6690;
+      border-bottom: 1px solid #3c6690;
+      box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+      width: 25%;
+      padding: 10px 0;
+    }
+    table td{
+      text-align: center;
+      border-top:none;
+      width: 25%;
+      padding: 10px 0;
+    }
+    table tr:last-child td:first-child {
+      border-radius: 0 0 0 5px;
+    }
+    table tr:last-child td:last-child {
+      border-radius: 0 0 5px 0;
+    }
+    
+/*ボタンデザイン*/
+    /*詳細ボタン*/
+    .link-info{
+      padding: 5px 10px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgb(49, 170, 226) 50%);
+      background-position: 0 0;
+      background-size: 200% auto;
+      transition: .3s;
+      font-size:1rem;
+      /*border-bottom:2px solid #000;*/
+      color:#000;
+    }
+    .link-info:hover{
+      background-position: -100% 0;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    
+    /*編集ボタン*/
+    .link-edit{
+      padding: 5px 10px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, #007bff 50%);
+      background-position: 0 0;
+      background-size: 200% auto;
+      transition: .3s;
+      font-size:1rem;
+      /*border-bottom:2px solid #000;*/
+      color:#000;
+    }
+    .link-edit:hover{
+      background-position: -100% 0;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    
+    /*削除ボタン*/
+    .link-delete{
+      padding: 5px 10px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgb(255, 0, 0) 50%);
+      background-position: 0 0;
+      background-size: 200% auto;
+      transition: .3s;
+      font-size:1rem;
+      /*border-bottom:2px solid #000;*/
+      color:#000;
+    }
+    .link-delete:hover{
+      background-position: -100% 0;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: none;
+    }
 
-table th:first-child{
-  border-radius: 5px 0 0 0;
-}
-
-table th:last-child{
-  border-radius: 0 5px 0 0;
-  border-right: 1px solid #3c6690;
-}
-
-table th{
-  text-align: center;
-  color:white;
-  background: linear-gradient(#829ebc,#225588);
-  border-left: 1px solid #3c6690;
-  border-top: 1px solid #3c6690;
-  border-bottom: 1px solid #3c6690;
-  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
-  width: 25%;
-  padding: 10px 0;
-}
-
-table td{
-  text-align: center;
-  /*border-left: 1px solid #a8b7c5;*/
-  /*border-left: 1px solid #000;*/
-  /*border-bottom: 1px solid #000;*/
-  border-top:none;
-  /*box-shadow: 0px -1px 1px 1px #000 inset;*/
-  width: 25%;
-  padding: 10px 0;
-}
-
-/*table td:last-child{*/
-/*  border-right: 1px solid #a8b7c5;*/
-/*}*/
-
-table tr:last-child td:first-child {
-  border-radius: 0 0 0 5px;
-}
-
-table tr:last-child td:last-child {
-  border-radius: 0 0 5px 0;
-}
-
-/*詳細ボタン*/
-.link-info{
-  padding: 5px 10px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgb(49, 170, 226) 50%);
-  background-position: 0 0;
-  background-size: 200% auto;
-  transition: .3s;
-  font-size:1rem;
-  /*border-bottom:2px solid #000;*/
-  color:#000;
-}
-
-.link-info:hover{
-  background-position: -100% 0;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-/*編集ボタン*/
-.link-edit{
-  padding: 5px 10px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, #007bff 50%);
-  background-position: 0 0;
-  background-size: 200% auto;
-  transition: .3s;
-  font-size:1rem;
-  /*border-bottom:2px solid #000;*/
-  color:#000;
-}
-
-.link-edit:hover{
-  background-position: -100% 0;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: none;
-}
-/*削除ボタン*/
-.link-delete{
-  padding: 5px 10px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgb(255, 0, 0) 50%);
-  background-position: 0 0;
-  background-size: 200% auto;
-  transition: .3s;
-  font-size:1rem;
-  /*border-bottom:2px solid #000;*/
-  color:#000;
-}
-
-.link-delete:hover{
-  background-position: -100% 0;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-
-/*商品詳細*/
-  .description > h1{
+/*商品詳細画面*/
+    .description > h1{
     font-size:2rem;
     border-bottom:1px solid #000;
     text-align:center;
   }
-  
-  .description > p{
+    .description > p{
     font-size:1rem;
   }
-  
-  
-  .item-price{
+    .item-price{
     color:red;
     font-size:1.8rem;
     padding:0 1rem;
   }
-  .item-stock{
+    .item-stock{
     padding:0 1rem;
     
   }
-  
-  .item-description{
+    .item-description{
     font-size:0.8rem;
   }
 
-/*ユーザ側予約ボタン*/
-.btn-reservation{
-  display: block;
-  font-weight: bold;
-  padding:0.25em 0.5em;
-  color: #32CD32;
-  transition:.4s;
-  text-align: center;
-  margin-top:2rem;
+/*ユーザ側一覧ページ*/
+    ul{
+        list-style:none;
+        width:100%;
+        padding:0;
+    }
+    .mypage-list{
+        margin:1.5rem 0;
+        font-size:1.2rem;
+        border:2px solid #000;
+        background-color:#000;
+        color:#FFCC00;
+        display:block;
+        padding:0.5rem 1rem;
+    }
+    .mypage-list:hover{
+        background-color:#FFCC00;
+        color:#000;
+        transition:background-color .5s;
+        text-decoration: none;
+    }
+    .mypage-title > h1{
+        margin-bottom:5rem;
+    }
+    .mypage-title > h2{
+         border-bottom:solid 2px black;
+    }
+    .show-image{
+        border-right:1px solid #000;
+        padding-right:1rem;
+    }
+    .show-image p span{
+        color:red;
+        font-size:2rem;
+        padding:0 0.5rem;
+    }
+    
+/*レッスン一覧画面 */
+    .sampleRow{
+        margin-left:10px;
+    }
+    .lesson-one{
+        background-color:#DDDDDD;
+        border:solid 2px #000000;
+        margin-bottom:10px;
+        padding:10px;        
+        height:86px;
+        position:relative;
+    }
+    .button-info{
+        display:inline-block;
+        display:flex;
+        position:absolute;
+        width: auto;
+        margin-right:10px;
+        right: 0;
+        bottom: 1rem;
+    }
+    .sampleRow > p{
+        margin-right:20px;
+        margin-bottom:0px;
+    }
+    .col{
+        margin:auto 0;
+        display:flex;
+    }
+    .mb-5 > .show-image{
+      border:none;
+    }
+    .res-info{
+        display: none;
+    }
+/*レッスン詳細画面*/
+    h1{
+        font-family:'Impact';
+    }
+    /*ユーザ側予約ボタン*/
+    .btn-reservation{
+      display: block;
+      font-weight: bold;
+      padding:0.25em 0.5em;
+      color: #32CD32;
+      transition:.4s;
+      text-align: center;
+      margin-top:2rem;
+    }
+    .btn-reservation:hover{
+      text-decoration: none;  
+      background-color:#32CD32;
+      color:#000;
+    }
+    
+/*ユーザー一覧画面*/
+    .user_info{
+        display:flex;
+        flex-direction:row;
+    }
+    .link-info{
+    }
+    .user_point{
+        width:5.3rem;
+        margin-right:10px;
+    }
+    
+/*ユーザー詳細画面*/
+    .member-info{
+        padding:2rem;
+    }
+    .member-info th{
+        font-size:1.3rem;
+    }
+    
+/*運営側ログイン画面*/
+    .management-login{
+        margin-top:5rem;
+        padding:0 6rem;
+        
+    }
+    .login-group{
+        display:flex;
+        margin-left:2rem;
+    }
+    .login-form{
+        display:inline-block;
+        width:50%;
+        border-radius:0.5rem;
+        margin-right:5rem;
+        box-shadow: 1px 1px 1px 1px inset;
+    }
+    .login-form:focus{
+        box-shadow: 0.5px 0.5px 0.5px 0.5px inset;
+    }
+    .btn-authorization{
+        text-decoration: none;
+        background: #1E90FF;
+        border-radius: 4px;
+        color:#fff;
+        width:10%;
+        font-size:1rem;
+    }
+
+@media screen and ( max-width:479px ){
+    main{
+        padding-top: 56px;
+    }
+    header{
+        height: 56px;
+    }
+    .text-center{
+        width: 100%;
+    }
+    
+    .bg-header > h1{
+        margin-left: 10px;
+    }
+    
+    .content{
+        display: block;
+    }
+/*ユーザーマイページ    */
+    .show-image{
+        border-right:none;
+        margin: 0;
+    }
+    
+    .description{
+        margin: 0;
+    }
+    
+    .mypage-title > h1{
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+/*一覧画面*/
+    .page-top > h1{
+         font-size: 2rem;   
+    }
+    
+    .res-h2{
+        font-size: 1.5rem;
+    }
+
+/*検索画面 */
+    .card-body{
+        padding:1rem;
+        /*height: 285px;*/
+    }
+    
+    .card-input{
+        position: static;
+        width: 100%;
+    }
+    
+    .page-top > .btn-primary{
+        position: static;
+    }
+/*レッスン一覧*/
+    .full-info{
+        display: none;
+    }
+    
+    .res-info{
+        display: inline-block;
+        bottom:0.5rem;
+    }
+    
+    .res-info > .btn{
+        padding:0.15rem;
+    }
+    
+/*レッスン詳細*/
+    .show-image > img{
+        width: 100%;
+        height: 20rem;
+    }
+    
+    .show-image > p{
+        margin: 10px 0;
+    }
+    
+    .description > h2{
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    
+/*レッスン予約一覧    */
+    .res-info > .btn-danger{
+        margin-top: 0.5rem;
+    }
+    
 }
-
-.btn-reservation:hover{
-  text-decoration: none;  
-  background-color:#32CD32;
-  color:#000;
-}
-
-
-

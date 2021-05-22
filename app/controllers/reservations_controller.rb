@@ -9,15 +9,19 @@ class ReservationsController < UserController
     end
     
     def create
-        if Reservation.where(user_id: current_user.id,lesson_id: params[:lesson_id]).blank?
-            Reservation.create(user_id: current_user.id,lesson_id: params[:lesson_id])
+        @reservation = Reservation.new(user_id: current_user.id,lesson_id: params[:lesson_id])
+        @lesson = @reservation.lesson
+        if @reservation.save
+            flash[:notice] = "予約完了"
+            redirect_to lesson_path(params[:lesson_id])
+        else
+            flash[:alert] = "予約失敗"
+            render "lessons/show"
         end
-        redirect_to lesson_path(params[:lesson_id])
     end
     
     def destroy
         reservation = Reservation.where(user_id: current_user.id,lesson_id: params[:id]).first
-        # reservation = Reservation.find(params[:lesson_id])
         reservation.destroy
         redirect_to reservations_path
         # redirect_to lesson_path(params[:lesson_id])

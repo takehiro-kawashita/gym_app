@@ -19,6 +19,23 @@ RSpec.describe Management::UsersController,type: :request do
             end
         end
     end
+    
+    describe '#point' do
+        before do
+            @user = FactoryBot.create(:user)
+        end
+        
+        it 'response success' do
+            post "/management/users/#{@user.id}/points"
+            expect(response.status).to redirect_to management_user_path(@user.id)
+        end
+        context 'Add points' do        
+            it 'response success' do
+                post "/management/users/#{@user.id}/points",params:{point:100}
+                expect(@user.reload.point).to eq(@user.point)
+            end
+        end
+    end
 
     describe '#show' do
         before do

@@ -7,6 +7,7 @@ class LessonsController < UserController
     end
     
     def show
+        
     end
     
     # def new

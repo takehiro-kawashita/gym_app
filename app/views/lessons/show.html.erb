@@ -4,13 +4,14 @@
         <%= link_to "戻る",lessons_path,class:"btn btn-secondary"%>        
     </div>
     <div class="content mb-5">
-        
         <div class="show-image">
             <%= image_tag @lesson.image if @lesson.image.attached? %>
-            <% if current_user.reservations.includes(@lesson.id) then%>
-                <%= link_to "予約済", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation rev-active",id:"rev" %>  
+            <% if current_user.reservations.find_by(lesson_id:@lesson.id) then%>
+                <p>このレッスンは予約済です</p>
+            <% elsif @lesson.reservations.count >= @lesson.limits %>
+                <p>このレッスンは満員です</p>
             <% else %>
-                <%= link_to "このレッスンを予約する", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation",id:"rev" %>  
+                <p><%= link_to "予約する", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation" %></p>
             <% end %>
         </div>
 
@@ -23,22 +24,6 @@
             <p>上限人数：<%= @lesson.limits %>人</p>
             <p>料金：<%= @lesson.price %></p>
             <p>概要：<%= @lesson.description %></p>
-            
         </div>
     </div>
 </div>
-
-<style>
-    .content{
-        display:flex;
-    }
-    
-    h1{
-        font-family:'Impact';
-    }
-    
-    .btn-reservation.rev-active{
-        background-color:gray;
-        color:#fff;
-    }
-</style>

@@ -3,7 +3,7 @@
         <h1>レッスン一覧</h1>
         <%= link_to 'マイページ',gym_apps_path,class:"btn btn-secondary"%>
     </div>
-    <h2>【検索条件入力欄】</h2>
+    <h2 class= res-h2>【検索条件入力欄】</h2>
     <div class="card-body">
         <%= search_form_for @q,url: lessons_path do |f| %>
             <p>レッスン名：<%= f.search_field :title_cont, placeholder: "レッスン名", class: "card-input" %></p>
@@ -20,43 +20,11 @@
                 <p class="col-xs-4">レッスン名：<%= lesson.title %></p>
                 <p class="col-xs-4">実施日時：<%= lesson.started_at.strftime("%Y/%m/%d %H:%M") %></p>
                 <p class="col-xs-4">区分：<%= lesson.category %></p>
-            </div>
-            <div class="button-info">
-                <p><%= link_to "【レッスン詳細】",lesson_path(lesson),class:"link-info" %></p>
+
+                <p class="button-info full-info"><%= link_to "【レッスン詳細】",lesson_path(lesson),class:"link-info" %></p>
+                <p class="button-info res-info"><%= link_to "【詳細】",lesson_path(lesson),class:"btn btn-info" %></p>
             </div>
         </div>
     <% end %>    
     <%= paginate @lessons %>
 </div>
-
-<style>
-    .sampleRow{
-        margin-left:10px;
-    }
-
-    .lesson-one{
-        background-color:#DDDDDD;
-        border:solid 2px #000000;
-        margin-bottom:10px;
-        padding:10px;        
-        height:86px;
-        position:relative;
-    }
-    
-    .button-info{
-        display:inline-block;
-        display:flex;
-        position:absolute;
-        right:0;
-    }
-
-    .sampleRow > p{
-        margin-right:20px;
-        margin-bottom:0px;
-    }
-    
-    .col{
-        margin:auto 0;
-        display:flex;
-    }
-</style>

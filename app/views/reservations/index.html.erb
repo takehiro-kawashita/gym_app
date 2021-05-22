@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="page-top">
-        <h1>レッスン予約一覧</h1>
+    <div class="page-top mb-5">
+        <h1>予約一覧</h1>
         <%= link_to 'マイページ',gym_apps_path,class:"btn btn-secondary"%>
     </div>
     
@@ -16,17 +16,18 @@
             <td><%= reservation.lesson.title%></td>
             <td><%= reservation.lesson.started_at.strftime("%Y/%m/%d")%></td>
             <td><%= reservation.lesson.price%></td>
-            <td><%= reservation.lesson_id%>
-                <%= link_to "レッスン詳細",lesson_path(reservation.lesson_id),class:"link-info" %>
-                <%= link_to "予約キャンセル",reservation_path(reservation.lesson_id),method: :delete,data: { confirm: 'Are you sure?'},class:"link-delete"%>
+            <td>
+                <div class="full-info">
+                    <%= link_to "レッスン詳細",lesson_path(reservation.lesson_id),class:"link-info full-info" %>
+                    <%= link_to "キャンセル",reservation_path(reservation.lesson_id),method: :delete,data: { confirm: 'Are you sure?'},class:"link-delete"%>
+                </div>
+                <div class="res-info">
+                    <%= link_to "【詳細】",lesson_path(reservation.lesson_id),class:"btn btn-info res-info" %>
+                    <%= link_to "【削除】",reservation_path(reservation.lesson_id),method: :delete,data: { confirm: 'Are you sure?'},class:"btn btn-danger"%>
+                </div>
             </td>
         </tr>
         <% end %>    
     </table>
 </div>
 
-<style>
-    .page-top{
-        margin-bottom:2rem;
-    }
-</style>

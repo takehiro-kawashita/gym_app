@@ -3,7 +3,7 @@
     <h1>商品一覧</h1>
       <%= link_to 'マイページ',gym_apps_path,class:"btn btn-secondary"%>
   </div>
-    <h2>【検索条件入力欄】</h2>
+    <h2 class= res-h>【検索条件入力欄】</h2>
      <div class="card-body">
       <%= search_form_for @q,url: items_path do |f| %>
           <p>商品名：<%= f.search_field :name_cont, placeholder: "商品名", class: "card-input" %></p>
