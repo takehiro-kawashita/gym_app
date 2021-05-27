@@ -166,6 +166,10 @@ img{
     width:30rem;
 }
  /*詳細画面*/
+ .item_title_res{
+     display: none;
+ }
+ 
  .show-image{
     flex:1;
     margin-right: 4rem;
@@ -575,6 +579,15 @@ img{
 /*レッスン予約一覧    */
     .res-info > .btn-danger{
         margin-top: 0.5rem;
+    }
+    
+/*商品一覧*/
+    .item_title_res{
+        display: block;
+    }
+    
+    .item_title_full{
+        display: none;
     }
     
 }

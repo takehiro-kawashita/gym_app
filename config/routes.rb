@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
+  devise_for :users,
+    controllers: {
+      confirmations: 'users/confirmations'
+    }
+    
   root to:'gym_apps#index'
   resources :gym_apps
   get "/lessons",to:"lessons#index"

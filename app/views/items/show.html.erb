@@ -1,6 +1,7 @@
 <!--ユーザ側商品詳細-->
 <div class="container">
   <div class="page-top">
+    <h1 class="item_title_res"><%= @item.name %></h1>
 
     <%= link_to '戻る',items_path,class:"btn btn-secondary" %>  
   </div>
@@ -11,7 +12,7 @@
       <%= image_tag @item.image if @item.image.attached? %><br>
     </div>
     <div class="description">
-      <h1><%= @item.name%></h1>
+      <h1 class='item_title_full'><%= @item.name%></h1>
       <p>値段:<span class="item-price">￥<%= @item.price.to_s(:delimited,delimiter:',') %></span>円</p>
       <p>在庫:<span class="item-stock"><%= @item.stock %></span></p>
       <p>概要:<span class="item-description"><%= @item.description %></span></p>

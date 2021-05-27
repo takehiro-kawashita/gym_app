@@ -68,10 +68,11 @@ Rails.application.configure do
       address:              'smtp.gmail.com',
       domain:               'gmail.com',
       user_name:            'tkawashita1221@gmail.com',
-      password:             'K854t714',
+      password:             'cewmncolxqyyqief',
       authentication:       'login',
       enable_starttls_auto: true
     }
-    
   end
+  
+  config.action_mailer.default_url_options = {host: 'https://a189d02116fa4bf3bae64ba3db89b85a.vfs.cloud9.ap-northeast-1.amazonaws.com'}
 end

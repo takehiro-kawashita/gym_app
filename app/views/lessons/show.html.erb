@@ -12,6 +12,7 @@
                 <p>このレッスンは満員です</p>
             <% else %>
                 <p><%= link_to "予約する", reservations_path(lesson_id: @lesson.id),method: :post ,data: { confirm: 'Are you sure?'},class:"btn-reservation" %></p>
+                <p>※：レッスンを予約する際は実施日の前日までに予約をお願いします。</p>
             <% end %>
         </div>
 

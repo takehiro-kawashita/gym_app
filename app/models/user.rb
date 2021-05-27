@@ -7,6 +7,10 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :lockable, :timeoutable
+         :lockable, :timeoutable,:confirmable
+         
+  def is_confirmation_period_expired?
+    self.confirmation_period_expired?
+  end
          
 end
