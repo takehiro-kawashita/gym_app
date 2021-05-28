@@ -11,8 +11,10 @@ class ReservationsController < UserController
     def create
         @reservation = Reservation.new(user_id: current_user.id,lesson_id: params[:lesson_id])
         @lesson = @reservation.lesson
+        @user = current_user
         if @reservation.save
             flash[:notice] = "予約完了"
+            ReservationsMailer.send_confirm_to_user(@user).deliver
             redirect_to lesson_path(params[:lesson_id])
         else
             flash[:alert] = "予約失敗"
