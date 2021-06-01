@@ -77,3 +77,5 @@ gem 'ransack'
 gem 'kaminari'
  
 gem 'whenever', :require => false
+
+gem 'dotenv-rails'

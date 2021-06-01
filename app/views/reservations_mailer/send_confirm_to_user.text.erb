@@ -1,6 +1,12 @@
+<%= @user.name %> 様
 
+下記レッスン予約完了しました。
 
-レッスン予約完了しました。
+-----------------------------------------
+
+【レッスン】<%= @user.reservations.lesson.title %>
+【実施時間】<%= @user.reservations.lesson.started_at.strftime("%Y/%m/%d %H:%M") %>
+
 
 当日は余裕を持ってお越し下さい。
 

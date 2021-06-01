@@ -33,7 +33,7 @@
             <% @lesson.reservations.each do |res| %>
                 <tr>
                     <td><%= res.user.name %></td>
-                    <td><%= res.user.birthday.strftime("%Y/%m/%d")%></td>
+                    <td><%= res.user&.birthday&.strftime("%Y/%m/%d")%></td>
                     <td><%= res.user.sex %></td>
                 </tr>
             <% end %>

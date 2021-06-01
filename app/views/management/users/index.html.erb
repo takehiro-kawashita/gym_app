@@ -26,7 +26,7 @@
         <tr>
             <td><%= user.email%></td>
             <td><%= user.name %></td>
-            <td><%= user.birthday.strftime("%Y/%m/%d") %></td>
+            <td><%= user&.birthday&.strftime("%Y/%m/%d") %></td>
             <td>
                 <div class="user_info">
                     <%= link_to "【詳細】",management_user_path(user),class:"link-info"%>
