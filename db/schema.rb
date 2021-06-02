@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_044850) do
+ActiveRecord::Schema.define(version: 2021_06_02_004213) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_03_07_044850) do
     t.integer "limits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_lessons_on_discarded_at"
   end
 
   create_table "reservations", force: :cascade do |t|

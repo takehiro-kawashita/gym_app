@@ -1,7 +1,8 @@
 class ReservationsController < UserController
     
     def index
-        @reservations = current_user.reservations
+        @reservations = current_user.reservations.includes([:lesson])
+        
     end
     
     def show
@@ -14,7 +15,7 @@ class ReservationsController < UserController
         @user = current_user
         if @reservation.save
             flash[:notice] = "予約完了"
-            ReservationsMailer.send_confirm_to_user(@user).deliver
+            ReservationsMailer.send_confirm_to_user(@user,@reservation).deliver
             redirect_to lesson_path(params[:lesson_id])
         else
             flash[:alert] = "予約失敗"

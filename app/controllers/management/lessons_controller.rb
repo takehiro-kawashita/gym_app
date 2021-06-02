@@ -1,5 +1,5 @@
 class Management::LessonsController < ManagementController
-    before_action :set_lesson,only:[:show,:edit,:update,:destroy]
+    before_action :set_lesson,only:[:edit,:update,:destroy]
 
     def index
         @q = Lesson.ransack(params[:q])
@@ -7,7 +7,7 @@ class Management::LessonsController < ManagementController
     end
     
     def show
-        # @lesson = Lesson.find(params[:id])
+        @lesson = Lesson.includes([:users]).find(params[:id])
     end
     
     def new

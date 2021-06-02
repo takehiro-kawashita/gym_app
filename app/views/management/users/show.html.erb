@@ -54,11 +54,11 @@
                 </tr>
             </thead>
             <tbody>
-                <% @user.reservations.each do |res| %>
+                <% @user.lessons.each do |lesson| %>
                     <tr>
-                        <td><%= res.lesson.title %></td>
-                        <td><%= res.lesson.started_at.strftime("%Y/%m/%d %H:%M") %></td>
-                        <td><%= res.lesson.category %></td>
+                        <td><%= lesson.title %></td>
+                        <td><%= lesson.started_at.strftime("%Y/%m/%d %H:%M") %></td>
+                        <td><%= lesson.category %></td>
                     </tr>
                 <% end %>
             </tbody>

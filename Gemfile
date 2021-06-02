@@ -79,3 +79,7 @@ gem 'kaminari'
 gem 'whenever', :require => false
 
 gem 'dotenv-rails'
+
+gem "bullet"
+
+gem 'discard', '~> 1.0'

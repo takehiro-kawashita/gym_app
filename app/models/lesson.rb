@@ -1,7 +1,10 @@
 class Lesson < ApplicationRecord
+    include Discard::Model
+    default_scope -> { kept }
     has_many :reservations
+    has_many :users,through: :reservations
     has_one_attached :image
-    
+
     validates :title,presence: true,length: {maximum: 20}
     validates :level,presence: true
     validates :category,presence: true

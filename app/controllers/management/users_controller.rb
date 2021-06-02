@@ -14,7 +14,7 @@ class Management::UsersController < ManagementController
     end
 
     def show
-
+        @user = User.includes([:lessons]).find(params[:id])
     end
     
     def edit
