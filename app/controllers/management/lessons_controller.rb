@@ -44,7 +44,7 @@ class Management::LessonsController < ManagementController
     end
     
     def destroy
-        @lesson.destroy
+        @lesson.discard
         redirect_to management_lessons_path
     end
 

@@ -14,9 +14,9 @@
         </tr>
         <% @reservations.each do |reservation| %>
         <tr>
-            <td><%= reservation.lesson.title%></td>
-            <td><%= reservation.lesson.started_at.strftime("%Y/%m/%d")%></td>
-            <td><%= reservation.lesson.price%></td>
+            <td><%= reservation.lesson&.title%></td>
+            <td><%= reservation.lesson&.started_at&.strftime("%Y/%m/%d")%></td>
+            <td><%= reservation.lesson&.price%></td>
             <td>
                 <div class="full-info">
                     <%= link_to "レッスン詳細",lesson_path(reservation.lesson_id),class:"link-info full-info" %>
