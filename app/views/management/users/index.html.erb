@@ -31,7 +31,7 @@
                 <div class="user_info">
                     <%= link_to "【詳細】",management_user_path(user),class:"link-info"%>
                     <%= form_with(url:points_management_user_url(user.id),local: true) do |f| %>
-                        <%= f.number_field:point,placeholder:'ポイント',class:"user_point" %>
+                        <%= f.number_field:point,placeholder:'point',class:"user_point" %>
                         <%= f.submit "付与",class:"btn btn-success"%>
                     <% end %>
                 </div>

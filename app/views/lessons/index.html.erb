@@ -6,9 +6,9 @@
     <h2 class= res-h2>【検索条件入力欄】</h2>
     <div class="card-body">
         <%= search_form_for @q,url: lessons_path do |f| %>
-            <p>レッスン名：<%= f.search_field :title_cont, placeholder: "レッスン名", class: "card-input" %></p>
-            <p>実施日時：<%= f.search_field :started_at_gteq, placeholder: "実施日時", class: "card-input" %></p>
-            <p>区分：<%= f.search_field :category_cont, placeholder: "区分", class: "card-input" %></p>
+            <p>レッスン名：<%= f.search_field :title_cont, placeholder: "name", class: "card-input" %></p>
+            <p>実施日時：<%= f.search_field :started_at_gteq, placeholder: "date", class: "card-input" %></p>
+            <p>区分：<%= f.search_field :category_cont, placeholder: "category", class: "card-input" %></p>
             <div class="page-top">
                 <%= button_tag sanitize('<i class="fas fa-search"></i>検索'),:type => "submit",:class => "btn btn-primary"%>
             </div>

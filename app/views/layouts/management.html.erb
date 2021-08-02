@@ -20,7 +20,7 @@
       <div class="bg-header">
           <h1>SILVER'S GYM</h1>
           <% if session[:auth] == true %>
-            <%= link_to 'ログアウト',management_logout_path,data:{confirm: '本当にログアウトしますか？'},class:"btn btn-dark header-btn"%>
+            <%= link_to 'Log out',management_logout_path,data:{confirm: '本当にログアウトしますか？'},class:"btn btn-dark header-btn"%>
           <% end%>
       </div>
 
