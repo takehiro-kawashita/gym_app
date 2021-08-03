@@ -83,3 +83,5 @@ gem 'dotenv-rails'
 gem "bullet"
 
 gem 'discard', '~> 1.0'
+
+gem 'rails_12factor', group: :production
