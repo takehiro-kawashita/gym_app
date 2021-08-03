@@ -1,5 +1,5 @@
-# class Admin::ContactsController < Admin::ApplicationController
-class ContactsController < ApplicationController
+class Admin::ContactsController < Admin::ApplicationController
+# class ContactsController < ApplicationController
   def update
    contact = Contact.find(params[:id]) #contact_mailer.rbの引数を指定
    contact.update(contact_params)
