@@ -69,6 +69,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 group :production do
+  gem 'rails_12factor'
   gem 'pg'
 end
 
@@ -84,4 +85,6 @@ gem "bullet"
 
 gem 'discard', '~> 1.0'
 
-gem 'rails_12factor', group: :production
+gem 'slim-rails'
+
+gem 'html2slim'
