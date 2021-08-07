@@ -10,7 +10,7 @@ class Management::SessionController < ManagementController
             redirect_to management_lessons_path
         else
             session[:auth] = false
-            flash.now[:alert] = "認証コードが違います。"
+            flash.now[:alert] = "The authorization code is different."
             render :new
         end
     end

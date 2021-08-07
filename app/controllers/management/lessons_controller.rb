@@ -19,10 +19,10 @@ class Management::LessonsController < ManagementController
         @lesson = Lesson.new(lesson_params)
         
         if @lesson.save
-            flash[:notice] = "登録完了"
+            flash[:notice] = "succeed"
             redirect_to management_lessons_path
         else
-            flash.now[:alert] = "登録失敗"
+            flash.now[:alert] = "failed"
             render :new
         end
     end
@@ -31,10 +31,10 @@ class Management::LessonsController < ManagementController
         # @lesson = Lesson.find(params[:id])      
         lesson_params = set_params
         if @lesson.update(lesson_params)
-            flash[:notice] = "レッスン内容を更新しました。"
+            flash[:notice] = "Item was successfully updated."
             redirect_to management_lesson_path(@lesson)
         else
-            flash.now[:alert] = "更新に失敗しました。"
+            flash.now[:alert] = "Item was unsuccessfully updated."
             render :edit
         end
     end
@@ -45,6 +45,7 @@ class Management::LessonsController < ManagementController
     
     def destroy
         @lesson.discard
+        flash[:notice] = "Item was successfully destroyed."
         redirect_to management_lessons_path
     end
 

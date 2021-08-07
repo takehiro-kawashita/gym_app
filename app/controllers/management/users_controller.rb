@@ -23,17 +23,17 @@ class Management::UsersController < ManagementController
     def update
         user_params = set_params
         if @user.update(user_params)
-            flash[:notice] = "会員情報を更新しました。"
+            flash[:notice] = "Item was successfully updated."
             redirect_to management_user_path(@user)
         else
-            flash[:alert] = "会員情報の更新に失敗しました。"
+            flash[:alert] = "Item was unsuccessfully updated."
             render :edit
         end
     end
 
     def destroy
         @user.destroy
-        flash[:notice] = "削除しました。"
+        flash[:notice] = "Item was successfully destroyed."
         redirect_to management_users_path
     end
     
