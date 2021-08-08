@@ -44,6 +44,6 @@ class Management::UsersController < ManagementController
     end
 
     def set_params
-        params.require(:user).permit(:email,:name,:point,:birthday,:address,:male)
+        params.require(:user).permit(:email,:name,:point,:birthday,:address,:sex)
     end
 end
